@@ -98,7 +98,7 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
@@ -541,11 +541,21 @@ QPushButton:hover{
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>40</width>
+               <width>20</width>
                <height>20</height>
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="submit_but">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Выполнить</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
