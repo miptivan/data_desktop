@@ -98,7 +98,7 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
@@ -883,7 +883,7 @@ QPushButton:hover{
       <string>Главная</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="otschot_page_but">
+    <widget class="QPushButton" name="info_page_but">
      <property name="geometry">
       <rect>
        <x>10</x>
