@@ -98,7 +98,7 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
@@ -382,11 +382,11 @@ QPushButton:hover{
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="settings_page">
+     <widget class="QWidget" name="items_page">
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>160</x>
          <y>0</y>
          <width>331</width>
          <height>71</height>
@@ -395,87 +395,103 @@ QPushButton:hover{
        <property name="font">
         <font>
          <family>Verdana</family>
+         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="text">
         <string>Список товаров</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QWidget" name="">
        <property name="geometry">
         <rect>
-         <x>270</x>
-         <y>100</y>
-         <width>121</width>
-         <height>31</height>
+         <x>50</x>
+         <y>80</y>
+         <width>571</width>
+         <height>411</height>
         </rect>
        </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>10</pointsize>
-        </font>
-       </property>
-       <item>
-        <property name="text">
-         <string>Все</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Активные</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Неактивные</string>
-        </property>
-       </item>
-      </widget>
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>150</y>
-         <width>621</width>
-         <height>192</height>
-        </rect>
-       </property>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>New Column</string>
-        </property>
-       </column>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <property name="font">
+             <font>
+              <family>Verdana</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <item>
+             <property name="text">
+              <string>Все</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Активные</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Неактивные</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="items_submit">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Выполнить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="styleSheet">
+           <string notr="true">QHeaderView::section {
+    background-color: rgb(94, 191, 255);
+    border: none;
+    height: 32px;
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
      <widget class="QWidget" name="info_page">
@@ -923,7 +939,15 @@ QPushButton:hover{
          </layout>
         </item>
         <item>
-         <widget class="QTableWidget" name="tableWidget_5"/>
+         <widget class="QTableWidget" name="tableWidget_5">
+          <property name="styleSheet">
+           <string notr="true">QHeaderView::section {
+    background-color: rgb(94, 191, 255);
+    border: none;
+    height: 32px;
+}</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1010,7 +1034,7 @@ QPushButton:hover{
       <string>Настройки</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="button_page_3">
+    <widget class="QPushButton" name="items_page_but">
      <property name="geometry">
       <rect>
        <x>10</x>
