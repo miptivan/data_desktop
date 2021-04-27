@@ -3,15 +3,17 @@ from PyQt5 import QtWidgets
 import design_dev
 import sys
 import info_page
+import main_page
 import os
 os.system('pyuic5 design_dev.ui -o design_dev.py')
 
 
 list_dir = os.listdir('analysis')
-ys = []
+ys = set()
 for i in range(len(list_dir)):
     if list_dir[i][:len('EtsySoldOrderItems')] == 'EtsySoldOrderItems':
-        ys.append(list_dir[i][len('EtsySoldOrderItems'):len('EtsySoldOrderItems') + 4])
+        ys.add(list_dir[i][len('EtsySoldOrderItems'):len('EtsySoldOrderItems') + 4])
+ys = list(ys)
 ys = sorted(ys)
 
 
@@ -33,13 +35,13 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         # page_1
-        self.main_page_but.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.main_page))
+        self.main_page_but.clicked.connect(self.set_main_page)
         # page_2
         self.info_page_but.clicked.connect(self.info_page_loader)
         # refresh year on info_page
         self.submit_but.clicked.connect(self.set_info_page)
         # page_3
-        self.button_page_3.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_3))
+        #self.button_page_3.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_3))
         # page_4
         #self.button_page_4.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_1))
         # page_5
@@ -55,6 +57,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     
     def info_page_loader(self):
         global ys
+        self.comboBox_3.clear()
         self.comboBox_3.addItems(ys)
         return self.set_info_page()
     
@@ -66,6 +69,18 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.lineEdit_2.setText(str(sold_count))
         self.lineEdit_3.setText(str(round(sold_sum, 2)) + ' usd')
         return self.stackedWidget.setCurrentWidget(self.info_page)
+    
+    def main_page_loader(self):
+        return self.set_main_page()
+    
+    def set_main_page(self):
+        global ys
+        first_sale, all_count, all_sold, active_items = main_page.main_info(ys)
+        set_table(self.table_top, active_items)
+        self.label_5.setText(first_sale)
+        self.sold.setText(all_count)
+        self.profit.setText(all_sold)
+        return self.stackedWidget.setCurrentWidget(self.main_page)
         
 
 app = QtWidgets.QApplication(sys.argv)
