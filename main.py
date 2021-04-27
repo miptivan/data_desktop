@@ -24,7 +24,6 @@ def set_table(widget, table):
     widget.setColumnCount(len(headers))
     widget.setHorizontalHeaderLabels(headers)
     for i, row in table.iterrows():
-        print(widget.rowCount() + 1)
         widget.setRowCount(widget.rowCount() + 1)
         for j in range(widget.columnCount()):
             widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
@@ -34,6 +33,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.set_main_page()
         # page_1
         self.main_page_but.clicked.connect(self.set_main_page)
         # page_2
@@ -41,7 +41,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         # refresh year on info_page
         self.submit_but.clicked.connect(self.set_info_page)
         # page_3
-        #self.button_page_3.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_3))
+        self.items_page_but.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_3))
         # page_4
         #self.button_page_4.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_1))
         # page_5
