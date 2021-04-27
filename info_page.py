@@ -8,8 +8,8 @@ def info(y):
     sold_count = df['Quantity'].sum()
     sold_sum = df['Item Total'].sum()
     df = df.groupby('Item Name')[['Quantity', 'Item Total']].sum()
-    df = df.sort_values(by='Quantity', ascending=False)
-    ten_count = list(df.iloc[:10]['Item Name'].values)
-    df = df.sort_values(by='Item Total', ascending=False)
-    ten_sold = list(df.iloc[:10]['Item Name'])
+    df_1 = df.sort_values(by='Quantity', ascending=False)
+    ten_count = pd.DataFrame(data=np.array([df_1.index]).T, columns=['Item Name']).iloc[:10]
+    df_2 = df.sort_values(by='Item Total', ascending=False)
+    ten_sold = pd.DataFrame(data=np.array([df_2.index]).T, columns=['Item Name']).iloc[:10]
     return active_items, sold_count, sold_sum, ten_sold, ten_count
