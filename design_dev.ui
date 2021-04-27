@@ -98,11 +98,6 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
-<<<<<<< HEAD
-      <number>8</number>
-=======
-      <number>7</number>
->>>>>>> ecbf8d1971040b072ae0e9929d27ac602c7e6451
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
