@@ -4,6 +4,7 @@ import design_dev
 import sys
 import info_page
 import main_page
+import items_page
 import os
 os.system('pyuic5 design_dev.ui -o design_dev.py')
 

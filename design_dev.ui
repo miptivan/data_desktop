@@ -901,17 +901,6 @@ QPushButton:hover{
           </item>
          </layout>
         </item>
-        <item>
-         <widget class="QTableWidget" name="tableWidget_5">
-          <property name="styleSheet">
-           <string notr="true">QHeaderView::section {
-    background-color: rgb(94, 191, 255);
-    border: none;
-    height: 32px;
-}</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
