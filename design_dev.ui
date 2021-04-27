@@ -76,13 +76,13 @@ QPushButton:hover{
        <x>180</x>
        <y>10</y>
        <width>700</width>
-       <height>430</height>
+       <height>800</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
        <width>700</width>
-       <height>430</height>
+       <height>800</height>
       </size>
      </property>
      <property name="maximumSize">
@@ -98,7 +98,7 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>7</number>
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
@@ -817,9 +817,9 @@ QPushButton:hover{
       <widget class="QLabel" name="label_18">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>10</y>
-         <width>732</width>
+         <x>50</x>
+         <y>0</y>
+         <width>561</width>
          <height>48</height>
         </rect>
        </property>
@@ -835,6 +835,74 @@ QPushButton:hover{
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>60</y>
+         <width>667</width>
+         <height>466</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QWidget" name="plot" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTableWidget" name="tableWidget_4">
+            <column>
+             <property name="text">
+              <string>New Column1</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>New Column2</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QPushButton" name="a_but">
+            <property name="text">
+             <string>A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="b_but">
+            <property name="text">
+             <string>B</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="c_but">
+            <property name="text">
+             <string>C</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget_5"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>
