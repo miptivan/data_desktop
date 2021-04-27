@@ -915,6 +915,40 @@ QPushButton:hover{
        </layout>
       </widget>
      </widget>
+     <widget class="QWidget" name="page_9">
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>10</y>
+         <width>561</width>
+         <height>48</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Verdana</family>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Пустой лейбл</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_7">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>100</y>
+         <width>700</width>
+         <height>391</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
