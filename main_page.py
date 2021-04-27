@@ -37,6 +37,7 @@ def main_info(ys):
     active_items = pd.read_csv('analysis/EtsyListingsDownload.csv')
     active_items['Item Name'] = active_items['TITLE']
     del active_items['TITLE']
+    
     active_items = pd.merge(active_items, all_items, on='Item Name', how='left')
     active_items = active_items.groupby('Item Name')['Item Total'].sum()
     active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['Item Name', 'Item Total'])
