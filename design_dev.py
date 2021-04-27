@@ -296,6 +296,11 @@ class Ui_MainWindow(object):
         self.label_15.setObjectName("label_15")
         self.verticalLayout_4.addWidget(self.label_15)
         self.tableWidget_2 = QtWidgets.QTableWidget(self.info_page)
+        self.tableWidget_2.setStyleSheet("QHeaderView::section {\n"
+"    background-color: rgb(94, 191, 255);\n"
+"    border: none;\n"
+"    height: 32px;\n"
+"}")
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(0)
         self.tableWidget_2.setRowCount(0)
@@ -314,6 +319,11 @@ class Ui_MainWindow(object):
         self.label_14.setObjectName("label_14")
         self.verticalLayout_5.addWidget(self.label_14)
         self.tableWidget_3 = QtWidgets.QTableWidget(self.info_page)
+        self.tableWidget_3.setStyleSheet("QHeaderView::section {\n"
+"    background-color: rgb(94, 191, 255);\n"
+"    border: none;\n"
+"    height: 32px;\n"
+"}")
         self.tableWidget_3.setObjectName("tableWidget_3")
         self.tableWidget_3.setColumnCount(0)
         self.tableWidget_3.setRowCount(0)
@@ -440,7 +450,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

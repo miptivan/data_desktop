@@ -7,6 +7,14 @@ import os
 os.system('pyuic5 design_dev.ui -o design_dev.py')
 
 
+list_dir = os.listdir('analysis')
+ys = []
+for i in range(len(list_dir)):
+    if list_dir[i][:len('EtsySoldOrderItems')] == 'EtsySoldOrderItems':
+        ys.append(list_dir[i][len('EtsySoldOrderItems'):len('EtsySoldOrderItems') + 4])
+ys = sorted(ys)
+
+
 def set_table(widget, table):
     headers = table.columns.values.tolist()
     widget.setRowCount(0)
@@ -46,12 +54,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.show()
     
     def info_page_loader(self):
-        list_dir = os.listdir('analysis')
-        ys = []
-        for i in range(len(list_dir)):
-            if list_dir[i][:len('EtsySoldOrderItems')] == 'EtsySoldOrderItems':
-                ys.append(list_dir[i][len('EtsySoldOrderItems'):len('EtsySoldOrderItems') + 4])
-        ys = sorted(ys)
+        global ys
         self.comboBox_3.addItems(ys)
         return self.set_info_page()
     
