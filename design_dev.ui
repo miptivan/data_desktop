@@ -7,31 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>900</width>
-    <height>800</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>900</width>
-    <height>800</height>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>900</width>
-    <height>900</height>
+    <height>700</height>
    </size>
-  </property>
-  <property name="font">
-   <font>
-    <family>Verdana</family>
-   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
-  </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -53,9 +45,6 @@ QPushButton:hover{
 }
 </string>
   </property>
-  <property name="tabShape">
-   <enum>QTabWidget::Rounded</enum>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -63,7 +52,7 @@ QPushButton:hover{
       <x>0</x>
       <y>0</y>
       <width>900</width>
-      <height>811</height>
+      <height>700</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -109,7 +98,11 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
+<<<<<<< HEAD
       <number>8</number>
+=======
+      <number>7</number>
+>>>>>>> ecbf8d1971040b072ae0e9929d27ac602c7e6451
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
@@ -177,8 +170,8 @@ QPushButton:hover{
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>110</x>
-         <y>150</y>
+         <x>70</x>
+         <y>160</y>
          <width>111</width>
          <height>31</height>
         </rect>
@@ -196,8 +189,8 @@ QPushButton:hover{
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>450</x>
-         <y>150</y>
+         <x>410</x>
+         <y>160</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -218,9 +211,9 @@ QPushButton:hover{
        </property>
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>50</x>
          <y>190</y>
-         <width>281</width>
+         <width>131</width>
          <height>61</height>
         </rect>
        </property>
@@ -252,9 +245,9 @@ QPushButton:hover{
        </property>
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>190</y>
-         <width>281</width>
+         <x>410</x>
+         <y>200</y>
+         <width>131</width>
          <height>61</height>
         </rect>
        </property>
@@ -340,7 +333,7 @@ QPushButton:hover{
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>0</x>
          <y>0</y>
          <width>311</width>
          <height>71</height>
@@ -349,14 +342,10 @@ QPushButton:hover{
        <property name="font">
         <font>
          <family>Verdana</family>
-         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Отчёт</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <string>Страница 2</string>
        </property>
       </widget>
      </widget>
@@ -380,7 +369,7 @@ QPushButton:hover{
         <string>Список товаров</string>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -804,16 +793,15 @@ QPushButton:hover{
       <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>10</y>
-         <width>631</width>
+         <x>10</x>
+         <y>20</y>
+         <width>732</width>
          <height>48</height>
         </rect>
        </property>
        <property name="font">
         <font>
          <family>Verdana</family>
-         <pointsize>24</pointsize>
         </font>
        </property>
        <property name="text">
@@ -822,179 +810,6 @@ QPushButton:hover{
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_19">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>60</y>
-         <width>281</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>По активным товарам</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_21">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>510</y>
-         <width>290</width>
-         <height>40</height>
-        </rect>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>45</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Verdana</family>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Название товара</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-      <widget class="QWidget" name="">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>100</y>
-         <width>701</width>
-         <height>402</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_8">
-        <item>
-         <widget class="QWidget" name="widget" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>400</width>
-            <height>400</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
-          <item>
-           <widget class="QLabel" name="label_20">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Verdana</family>
-              <pointsize>14</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Выбор товара:</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox_2">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="editable">
-             <bool>false</bool>
-            </property>
-            <property name="duplicatesEnabled">
-             <bool>false</bool>
-            </property>
-            <property name="frame">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>560</y>
-         <width>665</width>
-         <height>202</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_9">
-        <item>
-         <widget class="QWidget" name="widget_2" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>400</width>
-            <height>200</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>200</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QTableWidget" name="tableWidget_6"/>
-        </item>
-       </layout>
       </widget>
      </widget>
      <widget class="QWidget" name="page_8">
@@ -1020,7 +835,7 @@ QPushButton:hover{
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1233,7 +1048,7 @@ QPushButton:hover{
       <string>Товары</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="busket_but">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1248,6 +1063,7 @@ QPushButton:hover{
     </widget>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

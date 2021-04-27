@@ -1,9 +1,8 @@
 import pandas as pd
 import numpy as np
-from datetime import date
 
 
-def main_info(ys):
+def items_info(state):
     dfs = []
     for y in ys:
         df = pd.read_csv(f'analysis/EtsySoldOrderItems{y}.csv')
@@ -30,15 +29,11 @@ def main_info(ys):
     for i in range(1, len(dfs)):
         all_items = all_items.append(dfs[i])
     
-    first_sale = all_items['Sale Date'].min()
-    all_count = str(all_items['Quantity'].sum())
-    all_sold = str(all_items['Item Total'].sum()) + ' usd'
-
     active_items = pd.read_csv('analysis/EtsyListingsDownload.csv')
     active_items['Item Name'] = active_items['TITLE']
     del active_items['TITLE']
-    
-    active_items = pd.merge(active_items, all_items, on='Item Name', how='left')
-    active_items = active_items.groupby('Item Name')['Item Total'].sum()
-    active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['Item Name', 'Item Total'])
-    return first_sale, all_count, all_sold, active_items
+
+    if state == 'Все':
+        res_df = pd.merge(active_items, all_items, on='Item Name', how='inner')
+        res_df = res_df.groupby('Item Name')
+        res_df = res_df[['Item Name', '']]
