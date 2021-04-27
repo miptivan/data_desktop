@@ -98,7 +98,7 @@ QPushButton:hover{
       </font>
      </property>
      <property name="currentIndex">
-      <number>7</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="main_page">
       <widget class="QLabel" name="label">
@@ -685,7 +685,15 @@ QPushButton:hover{
               </widget>
              </item>
              <item>
-              <widget class="QTableWidget" name="tableWidget_2"/>
+              <widget class="QTableWidget" name="tableWidget_2">
+               <property name="styleSheet">
+                <string notr="true">QHeaderView::section {
+    background-color: rgb(94, 191, 255);
+    border: none;
+    height: 32px;
+}</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -721,7 +729,15 @@ QPushButton:hover{
               </widget>
              </item>
              <item>
-              <widget class="QTableWidget" name="tableWidget_3"/>
+              <widget class="QTableWidget" name="tableWidget_3">
+               <property name="styleSheet">
+                <string notr="true">QHeaderView::section {
+    background-color: rgb(94, 191, 255);
+    border: none;
+    height: 32px;
+}</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
