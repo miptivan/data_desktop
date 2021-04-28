@@ -185,9 +185,26 @@ class Ui_MainWindow(object):
         self.label_19.setObjectName("label_19")
         self.gridLayout.addWidget(self.label_19, 0, 0, 1, 1)
         self.tableWidget_6 = QtWidgets.QTableWidget(self.main_page)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableWidget_6.sizePolicy().hasHeightForWidth())
+        self.tableWidget_6.setSizePolicy(sizePolicy)
+        self.tableWidget_6.setStyleSheet("QHeaderView::section {\n"
+"background-color: rgb(94, 191, 255);\n"
+"border: none;\n"
+"height: 32px;\n"
+"}")
+        self.tableWidget_6.setShowGrid(True)
         self.tableWidget_6.setObjectName("tableWidget_6")
         self.tableWidget_6.setColumnCount(0)
         self.tableWidget_6.setRowCount(0)
+        self.tableWidget_6.horizontalHeader().setVisible(True)
+        self.tableWidget_6.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_6.horizontalHeader().setDefaultSectionSize(338)
+        self.tableWidget_6.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget_6.verticalHeader().setVisible(False)
+        self.tableWidget_6.verticalHeader().setStretchLastSection(False)
         self.gridLayout.addWidget(self.tableWidget_6, 2, 0, 1, 1)
         self.stackedWidget.addWidget(self.main_page)
         self.settings_page = QtWidgets.QWidget()
