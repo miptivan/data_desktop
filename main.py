@@ -109,7 +109,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         if self.abc_flag == 0:
             global ys
             ABC_analysis.abc(ys)
-            abc = pd.read_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')
+            abc = pd.read_csv('analysis/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')
             abc_items = abc['group'].value_counts()
             fig, ax = plt.subplots(figsize=(6, 4))  # создаем график
             ax.bar(range(3), [
@@ -146,7 +146,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def abc_subpage_loader(self):
         global ys
         ABC_analysis.abc(ys)
-        abc = pd.read_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')
+        abc = pd.read_csv('analysis/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')
         abc = abc[abc['group'] == self.letter]
         abc = abc[['Item Name', 'Item Total']]
         summ = abc['Item Total'].values.sum()
