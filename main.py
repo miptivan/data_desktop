@@ -161,7 +161,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def basket_loader(self):
         global ys
         basket.bascket_info(ys)
-        bascket_df = pd.read_csv('basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        bascket_df = pd.read_csv('analysis/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
         set_table(self.tableWidget_5, bascket_df)
         return self.stackedWidget.setCurrentWidget(self.basket_page)
 

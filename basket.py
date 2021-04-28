@@ -36,5 +36,5 @@ def bascket_info(ys):
             res_df.loc[len(res_df)] = [item_1, item_2, support, confidence, lift]
         res_df = res_df[res_df['Lift'] >= 2.0]
         res_df = res_df.sort_values(by='Lift', ascending=False)
-        res_df.to_csv('basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        res_df.to_csv('analysis/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
     return
