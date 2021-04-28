@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 
 
-def info(y):
-    df = pd.read_csv(f'analysis/EtsySoldOrderItems{y}.csv')
+def info(y, path):
+    df = pd.read_csv(path + f'/EtsySoldOrderItems{y}.csv')
     active_items = len(pd.unique(df['Item Name']))
     sold_count = df['Quantity'].sum()
     sold_sum = df['Item Total'].sum()

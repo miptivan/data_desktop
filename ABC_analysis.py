@@ -4,12 +4,12 @@ import os
 from datetime import date
 
 
-def abc(ys):
-    list_dir = os.listdir('analysis')
+def abc(ys, path):
+    list_dir = os.listdir(path)
     if 'ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv' not in list_dir:
         dfs = []
         for y in ys:
-            df = pd.read_csv(f'analysis/EtsySoldOrderItems{y}.csv')
+            df = pd.read_csv(path + f'/EtsySoldOrderItems{y}.csv')
             dfs.append(df)
         
         for df in dfs:
@@ -52,5 +52,5 @@ def abc(ys):
                 return 'C'
 
         all_items['group'] = all_items['cum_perc'].apply(group)
-        all_items.to_csv('analysis/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')  # создали табличку ABC анализа
+        all_items.to_csv(path + '/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')  # создали табличку ABC анализа
     return

@@ -1,5 +1,5 @@
 # pyuic5 design.ui -o design.py
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 import pandas as pd
 import basket
 import sys
@@ -41,9 +41,12 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.path = 'analysis/'
         self.abc_flag = 0
         self.main_flag = 0
         self.main_page_loader()
+
+        self.browserButton.clicked.connect(self.pushButton_handler)
         # page_1
         self.main_page_but.clicked.connect(self.main_page_loader)
         # page_2
@@ -60,7 +63,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         # page_5
         self.basket_but.clicked.connect(self.basket_loader)
         # page_6
-        #self.button_page_6.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_3))
+        self.settings_page_but.clicked.connect(self.settings_loader)
         # page_7
         #self.button_page_7.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_1))
         # page_8
@@ -75,7 +78,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         return self.set_info_page()
     
     def set_info_page(self):
-        active_items, sold_count, sold_sum, ten_sold, ten_count = info_page.info(int(self.comboBox_3.currentText()))
+        active_items, sold_count, sold_sum, ten_sold, ten_count = info_page.info(int(self.comboBox_3.currentText()), self.path)
         set_table(self.tableWidget_2, ten_sold)
         set_table(self.tableWidget_3, ten_count)
         self.lineEdit.setText(str(active_items))
@@ -86,7 +89,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def main_page_loader(self):
         if self.main_flag == 0:
             global ys
-            first_sale, all_count, all_sold, active_items = main_page.main_info(ys)
+            first_sale, all_count, all_sold, active_items = main_page.main_info(ys, self.path)
             set_table(self.tableWidget_6, active_items)
             self.label_5.setText(first_sale)
             self.sold.setText(all_count)
@@ -109,8 +112,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def abc_page_loader(self):
         if self.abc_flag == 0:
             global ys
-            ABC_analysis.abc(ys)
-            abc = pd.read_csv('analysis/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+            ABC_analysis.abc(ys, self.path)
+            abc = pd.read_csv(self.path + '/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')
             abc_items = abc['group'].value_counts()
             fig, ax = plt.subplots(figsize=(6, 4))  # создаем график
             ax.bar(range(3), [
@@ -146,8 +149,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
 
     def abc_subpage_loader(self):
         global ys
-        ABC_analysis.abc(ys)
-        abc = pd.read_csv('analysis/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        ABC_analysis.abc(ys, self.path)
+        abc = pd.read_csv(self.path + '/ABC_table_' + '_'.join([str(y) for y in ys]) + '.csv')
         abc = abc[abc['group'] == self.letter]
         abc = abc[['Item Name', 'Item Total']]
         summ = abc['Item Total'].values.sum()
@@ -160,10 +163,20 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     
     def basket_loader(self):
         global ys
-        basket.bascket_info(ys)
-        bascket_df = pd.read_csv('analysis/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        basket.bascket_info(ys, self.path)
+        bascket_df = pd.read_csv(self.path + '/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
         set_table(self.tableWidget_5, bascket_df)
         return self.stackedWidget.setCurrentWidget(self.basket_page)
+    
+    def pushButton_handler(self):
+        filename = QtWidgets.QFileDialog.getExistingDirectory()
+        self.path = str(filename)
+        self.lineEdit_4.setText(self.path)
+        return self.settings_loader
+    
+    def settings_loader(self):
+        self.lineEdit_4.setText(self.path)
+        return self.stackedWidget.setCurrentWidget(self.settings_page)
 
         
         

@@ -27,3 +27,12 @@ def complex():
     all_items = dfs[0]  # Объединяем таблицы в одну...
     for i in range(1, len(dfs)):
         all_items = all_items.append(dfs[i])
+    
+    active_items = pd.read_csv(path + '/EtsyListingsDownload.csv')
+    active_items['Item Name'] = active_items['TITLE']
+    del active_items['TITLE']
+
+    # Получаем историю покупока активных товаров
+    active_items = pd.merge(active_items, all_items, on='Item Name', how='left')
+
+    ы

@@ -3,10 +3,10 @@ import numpy as np
 from datetime import date
 
 
-def main_info(ys):
+def main_info(ys, path):
     dfs = []
     for y in ys:
-        df = pd.read_csv(f'analysis/EtsySoldOrderItems{y}.csv')
+        df = pd.read_csv(path + f'/EtsySoldOrderItems{y}.csv')
         dfs.append(df)
     
     for df in dfs:
@@ -34,7 +34,7 @@ def main_info(ys):
     all_count = str(all_items['Quantity'].sum())
     all_sold = str(all_items['Item Total'].sum()) + ' usd'
 
-    active_items = pd.read_csv('analysis/EtsyListingsDownload.csv')
+    active_items = pd.read_csv(path + '/EtsyListingsDownload.csv')
     active_items['Item Name'] = active_items['TITLE']
     del active_items['TITLE']
 

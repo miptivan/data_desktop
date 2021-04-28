@@ -4,12 +4,12 @@ from apyori import apriori
 import os
 
 
-def bascket_info(ys):
-    list_dir = os.listdir('analysis')
+def bascket_info(ys, path):
+    list_dir = os.listdir(path)
     if 'basket_table_' + '_'.join([str(y) for y in ys]) + '.csv' not in list_dir:
         dfs = []
         for y in ys:
-            df = pd.read_csv(f'analysis/EtsySoldOrderItems{y}.csv')
+            df = pd.read_csv(path + f'/EtsySoldOrderItems{y}.csv')
             dfs.append(df)
 
         Df_tr = dfs[0]
@@ -36,5 +36,5 @@ def bascket_info(ys):
             res_df.loc[len(res_df)] = [item_1, item_2, support, confidence, lift]
         res_df = res_df[res_df['Lift'] >= 2.0]
         res_df = res_df.sort_values(by='Lift', ascending=False)
-        res_df.to_csv('analysis/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        res_df.to_csv(path + '/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
     return
