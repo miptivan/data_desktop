@@ -40,9 +40,11 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.set_main_page()
+        self.abc_flag = 0
+        self.main_flag = 0
+        self.main_page_loader()
         # page_1
-        self.main_page_but.clicked.connect(self.set_main_page)
+        self.main_page_but.clicked.connect(self.main_page_loader)
         # page_2
         self.info_page_but.clicked.connect(self.info_page_loader)
         # refresh year on info_page
@@ -81,15 +83,14 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         return self.stackedWidget.setCurrentWidget(self.info_page)
     
     def main_page_loader(self):
-        return self.set_main_page()
-    
-    def set_main_page(self):
-        global ys
-        first_sale, all_count, all_sold, active_items = main_page.main_info(ys)
-        set_table(self.table_top, active_items)
-        self.label_5.setText(first_sale)
-        self.sold.setText(all_count)
-        self.profit.setText(all_sold)
+        if self.main_flag == 0:
+            global ys
+            first_sale, all_count, all_sold, active_items = main_page.main_info(ys)
+            set_table(self.table_top, active_items)
+            self.label_5.setText(first_sale)
+            self.sold.setText(all_count)
+            self.profit.setText(all_sold)
+            self.main_flag = 1
         return self.stackedWidget.setCurrentWidget(self.main_page)
     
     def item_page_loader(self):
@@ -105,27 +106,29 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         return self.stackedWidget.setCurrentWidget(self.main_page)
     
     def abc_page_loader(self):
-        global ys
-        ABC_analysis.abc(ys)
-        abc = pd.read_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')
-        abc_items = abc['group'].value_counts()
-        fig, ax = plt.subplots(figsize=(5, 3))  # создаем график
-        ax.bar(range(3), [
-            abc_items.loc['A'],
-            abc_items.loc['B'],
-            abc_items.loc['C']
-        ])
-        ticklabels = ['A', 'B', 'C']
-        plt.xticks(range(len(ticklabels)), labels=ticklabels)
+        if self.abc_flag == 0:
+            global ys
+            ABC_analysis.abc(ys)
+            abc = pd.read_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')
+            abc_items = abc['group'].value_counts()
+            fig, ax = plt.subplots(figsize=(6, 4))  # создаем график
+            ax.bar(range(3), [
+                abc_items.loc['A'],
+                abc_items.loc['B'],
+                abc_items.loc['C']
+            ])
+            ticklabels = ['A', 'B', 'C']
+            plt.xticks(range(len(ticklabels)), labels=ticklabels)
 
-        self.plot.canvas.axes.clear()
-        self.plot.canvas.figure.clear()
-        self.plot.canvas.figure = fig
-        self.plot.canvas.axes = ax
-        res = []
-        for l in ['A', 'B', 'C']:
-            res.append([l, abc_items.loc[l], round(abc[abc['group'] == l]['total_percentage'].sum()*100, 2)])
-        set_table(self.tableWidget_4, pd.DataFrame(data=res, columns=['group', 'count', 'percentage of profit']))
+            self.plot.canvas.axes.clear()
+            self.plot.canvas.figure.clear()
+            self.plot.canvas.figure = fig
+            self.plot.canvas.axes = ax
+            res = []
+            for l in ['A', 'B', 'C']:
+                res.append([l, abc_items.loc[l], round(abc[abc['group'] == l]['total_percentage'].sum()*100, 2)])
+            set_table(self.tableWidget_4, pd.DataFrame(data=res, columns=['group', 'count', 'percentage of profit']))
+            self.abc_flag = 1
         return self.stackedWidget.setCurrentWidget(self.abc_analysis)
     
     def set_letter_a(self):
