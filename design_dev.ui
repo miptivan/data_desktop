@@ -177,7 +177,7 @@ QPushButton:hover{
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>8</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1192,7 +1192,15 @@ height: 32px;
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QTableWidget" name="tableWidget_7"/>
+           <widget class="QTableWidget" name="tableWidget_7">
+            <property name="styleSheet">
+             <string notr="true">QHeaderView::section {
+background-color: rgb(94, 191, 255);
+border: none;
+height: 32px;
+}</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
