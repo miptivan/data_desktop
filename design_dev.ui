@@ -29,21 +29,7 @@
    <string notr="true">*{
 font-family: Verdana;
 color: rgb(255, 255, 255);
-}
-QMainWindow{
-}
-QPushButton{
-background-color: #f1641e;
-color: #ffffff;
-height: 50px;
-border: 1px solid black;
-padding: 5px;
-font-weight: bold;
-}
-QPushButton:hover{
-
-}
-</string>
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">
@@ -62,7 +48,7 @@ QPushButton:hover{
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(94, 191, 255)</string>
+     <string notr="true">background-color: rgb(94, 191, 255);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -84,8 +70,28 @@ QPushButton:hover{
        <layout class="QVBoxLayout" name="verticalLayout_12">
         <item>
          <widget class="QPushButton" name="main_page_but">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
-           <string notr="true"/>
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
           </property>
           <property name="text">
            <string>Главная</string>
@@ -94,6 +100,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="info_page_but">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Отчёт</string>
           </property>
@@ -101,6 +130,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="settings_page_but">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Настройки</string>
           </property>
@@ -108,6 +160,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="items_page_but">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Товары</string>
           </property>
@@ -115,6 +190,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="basket_but">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Анализ корзины</string>
           </property>
@@ -122,6 +220,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_3">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Прогноз на период</string>
           </property>
@@ -129,6 +250,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_4">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Анализ сезонности</string>
           </property>
@@ -136,6 +280,29 @@ QPushButton:hover{
         </item>
         <item>
          <widget class="QPushButton" name="abc_analysis_but">
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+          </property>
           <property name="text">
            <string>Анализ доходности</string>
           </property>
@@ -177,7 +344,7 @@ QPushButton:hover{
          </font>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>6</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -417,7 +584,7 @@ height: 32px;
              <bool>true</bool>
             </property>
             <attribute name="horizontalHeaderVisible">
-             <bool>true</bool>
+             <bool>false</bool>
             </attribute>
             <attribute name="horizontalHeaderCascadingSectionResizes">
              <bool>false</bool>
