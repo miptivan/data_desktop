@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
 import os
+from datetime import date
 
 
-def abc(letter):
+def abc(ys):
     list_dir = os.listdir('analysis')
-    if 'ABC_table.csv' not in list_dir:
+    if 'ABC_table' + '_'.join([str(y) for y in ys]) + '.csv' not in list_dir:
         dfs = []
         for y in ys:
             df = pd.read_csv(f'analysis/EtsySoldOrderItems{y}.csv')
@@ -51,5 +52,5 @@ def abc(letter):
                 return 'C'
 
         all_items['group'] = all_items['cum_perc'].apply(group)
-        all_items.to_csv('analysis/ABC_table.csv')  # создали табличку ABC анализа
+        all_items.to_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')  # создали табличку ABC анализа
     return

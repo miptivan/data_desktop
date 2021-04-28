@@ -808,7 +808,7 @@ QPushButton:hover{
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_8">
+     <widget class="QWidget" name="abc_analysis">
       <widget class="QLabel" name="label_18">
        <property name="geometry">
         <rect>
@@ -834,9 +834,9 @@ QPushButton:hover{
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>0</x>
+         <x>20</x>
          <y>60</y>
-         <width>667</width>
+         <width>671</width>
          <height>466</height>
         </rect>
        </property>
@@ -844,17 +844,29 @@ QPushButton:hover{
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QWidget" name="plot" native="true">
+           <widget class="MplWidget" name="plot" native="true">
             <property name="minimumSize">
              <size>
-              <width>400</width>
+              <width>300</width>
               <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>250</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QTableWidget" name="tableWidget_4">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="styleSheet">
              <string notr="true">QHeaderView::section {
     background-color: rgb(94, 191, 255);
@@ -939,7 +951,7 @@ QPushButton:hover{
       </widget>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="abc_analysis_but">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -1050,6 +1062,14 @@ QPushButton:hover{
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MplWidget</class>
+   <extends>QWidget</extends>
+   <header>mplwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

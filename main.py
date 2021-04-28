@@ -1,10 +1,14 @@
 # pyuic5 design.ui -o design.py
 from PyQt5 import QtWidgets
+import pandas as pd
 import design_dev
 import sys
 import info_page
 import main_page
 import items_page
+import ABC_analysis
+import matplotlib.pyplot as plt
+#from graphic_widget import canvas
 import os
 os.system('pyuic5 design_dev.ui -o design_dev.py')
 
@@ -44,7 +48,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         # page_3
         self.items_page_but.clicked.connect(self.item_page_loader)
         # page_4
-        #self.button_page_4.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_1))
+        self.abc_analysis_but.clicked.connect(self.abc_page_loader)
         # page_5
         #self.button_page_5.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_2))
         # page_6
@@ -94,6 +98,29 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.sold.setText(all_count)
         self.profit.setText(all_sold)
         return self.stackedWidget.setCurrentWidget(self.main_page)
+    
+    def abc_page_loader(self):
+        global ys
+        ABC_analysis.abc(ys)
+        abc = pd.read_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')
+        abc_items = abc['group'].value_counts()
+        fig, ax = plt.subplots(figsize=(5, 3))  # создаем график
+        ax.bar(range(3), [
+            abc_items.loc['A'],
+            abc_items.loc['B'],
+            abc_items.loc['C']
+        ])
+        ticklabels = ['A', 'B', 'C']
+        plt.xticks(range(len(ticklabels)), labels=ticklabels)
+
+        self.plot.canvas.axes.clear()
+        self.plot.canvas.figure = fig
+        self.plot.canvas.axes = ax # ???????????????????????????????????????????????????????
+        res = []
+        for l in ['A', 'B', 'C']:
+            res.append([l, abc_items.loc[l], round(abc[abc['group'] == l]['total_percentage'].sum()*100, 2)])
+        set_table(self.tableWidget_4, pd.DataFrame(data=res, columns=['group', 'count', 'percentage of profit']))
+        return self.stackedWidget.setCurrentWidget(self.abc_analysis)
         
 
 app = QtWidgets.QApplication(sys.argv)
