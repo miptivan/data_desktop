@@ -52,6 +52,9 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.items_page_but.clicked.connect(self.item_page_loader)
         # page_4
         self.abc_analysis_but.clicked.connect(self.abc_page_loader)
+        self.a_but.clicked.connect()
+        self.b_but.clicked.connect()
+        self.c_but.clicked.connect()
         # page_5
         #self.button_page_5.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_2))
         # page_6
@@ -124,6 +127,13 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             res.append([l, abc_items.loc[l], round(abc[abc['group'] == l]['total_percentage'].sum()*100, 2)])
         set_table(self.tableWidget_4, pd.DataFrame(data=res, columns=['group', 'count', 'percentage of profit']))
         return self.stackedWidget.setCurrentWidget(self.abc_analysis)
+    
+    def ABC_subpage_loader(letter):
+        global ys
+        ABC_analysis.abc(ys)
+        abc = pd.read_csv('analysis/ABC_table' + '_'.join([str(y) for y in ys]) + '.csv')
+        abc = abc[abc['group'] == letter]
+        
         
 
 app = QtWidgets.QApplication(sys.argv)
