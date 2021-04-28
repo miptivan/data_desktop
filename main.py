@@ -1,6 +1,7 @@
 # pyuic5 design.ui -o design.py
 from PyQt5 import QtWidgets
 import pandas as pd
+import basket
 import sys
 import info_page
 import main_page
@@ -57,7 +58,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.b_but.clicked.connect(self.set_letter_b)
         self.c_but.clicked.connect(self.set_letter_c)
         # page_5
-        #self.button_page_5.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_2))
+        self.basket_but.clicked.connect(self.basket_loader)
         # page_6
         #self.button_page_6.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_3))
         # page_7
@@ -156,6 +157,14 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         set_table(self.tableWidget_7, abc)
         self.label_22.setText('Товары группы ' + self.letter)
         return self.stackedWidget.setCurrentWidget(self.abc_subpage)
+    
+    def basket_loader(self):
+        global ys
+        basket.bascket_info(ys)
+        bascket_df = pd.read_csv('basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        set_table(self.tableWidget_5, bascket_df)
+        return self.stackedWidget.setCurrentWidget(self.basket_page)
+
         
         
 

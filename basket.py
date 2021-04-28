@@ -4,7 +4,7 @@ from apyori import apriori
 import os
 
 
-def bascket_analysis(ys):
+def bascket_info(ys):
     list_dir = os.listdir('analysis')
     if 'basket_table_' + '_'.join([str(y) for y in ys]) + '.csv' not in list_dir:
         dfs = []
@@ -28,12 +28,13 @@ def bascket_analysis(ys):
         # распарсим немного результат
         res_df = pd.DataFrame(data=[], columns=['If this', 'Then this', 'Support', 'Confidence', 'Lift'])
         for i in range(len(res)):
-            item_1 = res[i][2][0][0]
-            item_2 = res[i][2][0][1]
-            support = res[i][1]
-            confidence = res[i][2][0][2]
-            lift = res[i][2][0][3]
+            item_1 = ', '.join([s for s in res[i][2][0][0]])
+            item_2 = ', '.join([s for s in res[i][2][0][1]])
+            support = round(res[i][1], 4)
+            confidence = round(res[i][2][0][2], 4)
+            lift = round(res[i][2][0][3], 4)
             res_df.loc[len(res_df)] = [item_1, item_2, support, confidence, lift]
-        print(res_df)
-
-bascket_analysis(range(2015, 2020))
+        res_df = res_df[res_df['Lift'] >= 2.0]
+        res_df = res_df.sort_values(by='Lift', ascending=False)
+        res_df.to_csv('basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+    return

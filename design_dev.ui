@@ -70,7 +70,7 @@ QPushButton:hover{
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -114,7 +114,7 @@ QPushButton:hover{
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="busket_but">
+         <widget class="QPushButton" name="basket_but">
           <property name="text">
            <string>Анализ корзины</string>
           </property>
@@ -177,7 +177,7 @@ QPushButton:hover{
          </font>
         </property>
         <property name="currentIndex">
-         <number>8</number>
+         <number>4</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -951,7 +951,7 @@ QPushButton:hover{
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="page_5">
+        <widget class="QWidget" name="basket_page">
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="0" column="0">
            <widget class="QLabel" name="label_9">
