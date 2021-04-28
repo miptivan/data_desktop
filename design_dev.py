@@ -17,27 +17,13 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("*{\n"
 "font-family: Verdana;\n"
 "color: rgb(255, 255, 255);\n"
-"}\n"
-"QMainWindow{\n"
-"}\n"
-"QPushButton{\n"
-"background-color: #f1641e;\n"
-"color: #ffffff;\n"
-"height: 50px;\n"
-"border: 1px solid black;\n"
-"padding: 5px;\n"
-"font-weight: bold;\n"
-"}\n"
-"QPushButton:hover{\n"
-"\n"
-"}\n"
-"")
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(0, 0, 900, 700))
         self.frame.setMinimumSize(QtCore.QSize(900, 700))
-        self.frame.setStyleSheet("background-color: rgb(94, 191, 255)")
+        self.frame.setStyleSheet("background-color: rgb(94, 191, 255);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -50,28 +36,179 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QtWidgets.QVBoxLayout()
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.main_page_but = QtWidgets.QPushButton(self.layoutWidget)
-        self.main_page_but.setStyleSheet("")
+        self.main_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.main_page_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.main_page_but.setObjectName("main_page_but")
         self.verticalLayout_12.addWidget(self.main_page_but)
         self.info_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.info_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.info_page_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.info_page_but.setObjectName("info_page_but")
         self.verticalLayout_12.addWidget(self.info_page_but)
         self.settings_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.settings_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.settings_page_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.settings_page_but.setObjectName("settings_page_but")
         self.verticalLayout_12.addWidget(self.settings_page_but)
         self.items_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.items_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.items_page_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.items_page_but.setObjectName("items_page_but")
         self.verticalLayout_12.addWidget(self.items_page_but)
         self.basket_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.basket_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.basket_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.basket_but.setObjectName("basket_but")
         self.verticalLayout_12.addWidget(self.basket_but)
         self.pushButton_3 = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout_12.addWidget(self.pushButton_3)
         self.pushButton_4 = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_4.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.pushButton_4.setObjectName("pushButton_4")
         self.verticalLayout_12.addWidget(self.pushButton_4)
         self.abc_analysis_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.abc_analysis_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.abc_analysis_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.abc_analysis_but.setObjectName("abc_analysis_but")
         self.verticalLayout_12.addWidget(self.abc_analysis_but)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -199,7 +336,7 @@ class Ui_MainWindow(object):
         self.tableWidget_6.setObjectName("tableWidget_6")
         self.tableWidget_6.setColumnCount(0)
         self.tableWidget_6.setRowCount(0)
-        self.tableWidget_6.horizontalHeader().setVisible(True)
+        self.tableWidget_6.horizontalHeader().setVisible(False)
         self.tableWidget_6.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget_6.horizontalHeader().setDefaultSectionSize(338)
         self.tableWidget_6.horizontalHeader().setStretchLastSection(False)
@@ -591,7 +728,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
