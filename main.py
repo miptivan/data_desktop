@@ -25,13 +25,16 @@ ys = sorted(ys)
 def set_table(widget, table):
     headers = table.columns.values.tolist()
     widget.setRowCount(0)
-    widget.clear()
     widget.setColumnCount(len(headers))
     widget.setHorizontalHeaderLabels(headers)
-    for i, row in table.iterrows():
-        widget.setRowCount(widget.rowCount() + 1)
+    widget.setRowCount(len(table))
+    i = 0
+    for _, row in table.iterrows():
+        row = row.values.tolist()
+        #widget.setRowCount(i)
         for j in range(widget.columnCount()):
             widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+        i += 1
     return
 
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
