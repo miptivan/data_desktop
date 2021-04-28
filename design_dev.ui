@@ -406,6 +406,13 @@ QPushButton:hover{
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QHeaderView::section {
+background-color: rgb(94, 191, 255);
+border: none;
+height: 32px;
+}</string>
+            </property>
             <property name="showGrid">
              <bool>true</bool>
             </property>
