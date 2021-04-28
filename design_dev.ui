@@ -177,7 +177,7 @@ QPushButton:hover{
          </font>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>8</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -435,6 +435,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -473,6 +475,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -558,6 +562,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -663,6 +669,8 @@ QPushButton:hover{
                <font>
                 <family>Verdana</family>
                 <pointsize>24</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
                </font>
               </property>
               <property name="text">
@@ -706,6 +714,7 @@ QPushButton:hover{
                 <property name="font">
                  <font>
                   <family>Verdana</family>
+                  <pointsize>14</pointsize>
                  </font>
                 </property>
                </widget>
@@ -850,10 +859,13 @@ QPushButton:hover{
                    <font>
                     <family>Verdana</family>
                     <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
                    </font>
                   </property>
                   <property name="text">
-                   <string>ТОП 10 по количеству продаж</string>
+                   <string>ТОП 10
+по количеству продаж</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -894,10 +906,13 @@ QPushButton:hover{
                    <font>
                     <family>Verdana</family>
                     <pointsize>10</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
                    </font>
                   </property>
                   <property name="text">
-                   <string>ТОП 10 по доходу</string>
+                   <string>ТОП 10
+по доходу</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>
@@ -956,6 +971,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -972,6 +989,13 @@ QPushButton:hover{
          </layout>
         </widget>
         <widget class="QWidget" name="page_6">
+         <property name="font">
+          <font>
+           <family>Verdana</family>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="0" column="0">
            <widget class="QLabel" name="label_16">
@@ -979,6 +1003,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -1011,6 +1037,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -1037,6 +1065,8 @@ QPushButton:hover{
            <font>
             <family>Verdana</family>
             <pointsize>24</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -1089,16 +1119,6 @@ QPushButton:hover{
     height: 32px;
 }</string>
                </property>
-               <column>
-                <property name="text">
-                 <string>New Column1</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>New Column2</string>
-                </property>
-               </column>
               </widget>
              </item>
             </layout>
@@ -1151,6 +1171,8 @@ QPushButton:hover{
              <font>
               <family>Verdana</family>
               <pointsize>24</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
