@@ -172,32 +172,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.verticalLayout_6)
         self.verticalLayout_11.addLayout(self.horizontalLayout)
         self.gridLayout.addLayout(self.verticalLayout_11, 1, 0, 1, 1)
-        self.table_top = QtWidgets.QTableWidget(self.main_page)
-        font = QtGui.QFont()
-        font.setFamily("Verdana")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setWeight(50)
-        self.table_top.setFont(font)
-        self.table_top.setStyleSheet("QHeaderView::section {\n"
-"    background-color: rgb(94, 191, 255);\n"
-"    border: none;\n"
-"    height: 32px;\n"
-"}")
-        self.table_top.setObjectName("table_top")
-        self.table_top.setColumnCount(0)
-        self.table_top.setRowCount(0)
-        self.table_top.horizontalHeader().setVisible(False)
-        self.table_top.horizontalHeader().setCascadingSectionResizes(False)
-        self.table_top.horizontalHeader().setDefaultSectionSize(200)
-        self.table_top.horizontalHeader().setHighlightSections(True)
-        self.table_top.horizontalHeader().setSortIndicatorShown(False)
-        self.table_top.horizontalHeader().setStretchLastSection(True)
-        self.table_top.verticalHeader().setCascadingSectionResizes(False)
-        self.table_top.verticalHeader().setHighlightSections(True)
-        self.table_top.verticalHeader().setSortIndicatorShown(False)
-        self.table_top.verticalHeader().setStretchLastSection(False)
-        self.gridLayout.addWidget(self.table_top, 2, 0, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.main_page)
         self.label_19.setMinimumSize(QtCore.QSize(700, 70))
         self.label_19.setMaximumSize(QtCore.QSize(700, 70))
@@ -210,6 +184,11 @@ class Ui_MainWindow(object):
         self.label_19.setAlignment(QtCore.Qt.AlignCenter)
         self.label_19.setObjectName("label_19")
         self.gridLayout.addWidget(self.label_19, 0, 0, 1, 1)
+        self.tableWidget_6 = QtWidgets.QTableWidget(self.main_page)
+        self.tableWidget_6.setObjectName("tableWidget_6")
+        self.tableWidget_6.setColumnCount(0)
+        self.tableWidget_6.setRowCount(0)
+        self.gridLayout.addWidget(self.tableWidget_6, 2, 0, 1, 1)
         self.stackedWidget.addWidget(self.main_page)
         self.settings_page = QtWidgets.QWidget()
         font = QtGui.QFont()
@@ -467,6 +446,11 @@ class Ui_MainWindow(object):
         self.label_9.setObjectName("label_9")
         self.gridLayout_4.addWidget(self.label_9, 0, 0, 1, 1)
         self.tableWidget_5 = QtWidgets.QTableWidget(self.basket_page)
+        self.tableWidget_5.setStyleSheet("QHeaderView::section {\n"
+"background-color: rgb(94, 191, 255);\n"
+"border: none;\n"
+"height: 32px;\n"
+"}")
         self.tableWidget_5.setObjectName("tableWidget_5")
         self.tableWidget_5.setColumnCount(0)
         self.tableWidget_5.setRowCount(0)
@@ -576,6 +560,11 @@ class Ui_MainWindow(object):
         self.label_22.setObjectName("label_22")
         self.gridLayout_7.addWidget(self.label_22, 0, 0, 1, 1)
         self.tableWidget_7 = QtWidgets.QTableWidget(self.abc_subpage)
+        self.tableWidget_7.setStyleSheet("QHeaderView::section {\n"
+"background-color: rgb(94, 191, 255);\n"
+"border: none;\n"
+"height: 32px;\n"
+"}")
         self.tableWidget_7.setObjectName("tableWidget_7")
         self.tableWidget_7.setColumnCount(0)
         self.tableWidget_7.setRowCount(0)
@@ -585,7 +574,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

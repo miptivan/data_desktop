@@ -87,7 +87,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         if self.main_flag == 0:
             global ys
             first_sale, all_count, all_sold, active_items = main_page.main_info(ys)
-            set_table(self.table_top, active_items)
+            set_table(self.tableWidget_6, active_items)
             self.label_5.setText(first_sale)
             self.sold.setText(all_count)
             self.profit.setText(all_sold)
