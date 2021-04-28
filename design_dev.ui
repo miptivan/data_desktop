@@ -343,8 +343,35 @@ font-weight: bold;
           <pointsize>40</pointsize>
          </font>
         </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="toolTip">
+         <string/>
+        </property>
+        <property name="accessibleDescription">
+         <string/>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
         <property name="currentIndex">
-         <number>6</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -584,7 +611,7 @@ height: 32px;
              <bool>true</bool>
             </property>
             <attribute name="horizontalHeaderVisible">
-             <bool>false</bool>
+             <bool>true</bool>
             </attribute>
             <attribute name="horizontalHeaderCascadingSectionResizes">
              <bool>false</bool>
@@ -676,6 +703,26 @@ height: 32px;
             </item>
             <item>
              <widget class="QPushButton" name="pushButton">
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+              </property>
               <property name="text">
                <string>Выбрать</string>
               </property>
@@ -755,6 +802,9 @@ height: 32px;
                   <pointsize>10</pointsize>
                  </font>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <item>
                  <property name="text">
                   <string>Все</string>
@@ -779,6 +829,26 @@ height: 32px;
                   <width>150</width>
                   <height>0</height>
                  </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
                 </property>
                 <property name="text">
                  <string>Выполнить</string>
@@ -879,6 +949,26 @@ height: 32px;
                <widget class="QPushButton" name="submit_but">
                 <property name="enabled">
                  <bool>true</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
                 </property>
                 <property name="text">
                  <string>Выполнить</string>
@@ -1291,6 +1381,26 @@ height: 32px;
             <layout class="QHBoxLayout" name="horizontalLayout_6">
              <item>
               <widget class="QPushButton" name="a_but">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+               </property>
                <property name="text">
                 <string>A</string>
                </property>
@@ -1298,6 +1408,26 @@ height: 32px;
              </item>
              <item>
               <widget class="QPushButton" name="b_but">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+               </property>
                <property name="text">
                 <string>B</string>
                </property>
@@ -1305,6 +1435,26 @@ height: 32px;
              </item>
              <item>
               <widget class="QPushButton" name="c_but">
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: #5ebfff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}
+QPushButton:hover{
+background-color: #2babff;
+color: #ffffff;
+height: 50px;
+border: 1px solid white;
+border-radius: 2px;
+padding: 5px;
+font-weight: bold;
+}</string>
+               </property>
                <property name="text">
                 <string>C</string>
                </property>
