@@ -785,6 +785,18 @@ class Ui_MainWindow(object):
         self.label_16.setAlignment(QtCore.Qt.AlignCenter)
         self.label_16.setObjectName("label_16")
         self.gridLayout_5.addWidget(self.label_16, 0, 0, 1, 1)
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.widget_3 = MplWidget(self.page_6)
+        self.widget_3.setMinimumSize(QtCore.QSize(300, 0))
+        self.widget_3.setObjectName("widget_3")
+        self.horizontalLayout_13.addWidget(self.widget_3)
+        self.tableWidget_9 = QtWidgets.QTableWidget(self.page_6)
+        self.tableWidget_9.setObjectName("tableWidget_9")
+        self.tableWidget_9.setColumnCount(0)
+        self.tableWidget_9.setRowCount(0)
+        self.horizontalLayout_13.addWidget(self.tableWidget_9)
+        self.gridLayout_5.addLayout(self.horizontalLayout_13, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_6)
         self.season_page = QtWidgets.QWidget()
         self.season_page.setObjectName("season_page")
@@ -1040,7 +1052,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(5)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

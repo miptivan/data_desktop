@@ -58,6 +58,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.abc_flag = 0
         self.main_flag = 0
         self.season_flag = 0
+        self.forecast_flag = 0
         self.main_page_loader()
 
         self.browserButton.clicked.connect(self.pushButton_handler)
@@ -299,7 +300,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 ss = f.read().split('\n')
                 forecast = [float(s) if s != 'None' else None for s in ss[4].split(', ')]
             active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
-            df = active_items.copy()
+            month_0 = active_items['real_month'].iloc[0]
             active_items = active_items.groupby('month')['Item Total'].sum()
             active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
             active_items = active_items.iloc[:-1]
@@ -308,10 +309,19 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             #ax.plot(range(len(active_items['Item Total'])), model.season*(model.trend*model.level) + model.resid)
             ax.plot(range(len(active_items['Item Total']) - 1, len(active_items['Item Total']) + len(forecast)), np.hstack((active_items['Item Total'].values[-1], forecast)), label='forecast')
             ax.set_title('Forecast for next 12 months')
-            ax.set_xticks(range(0, len(trend), 12))
-            ax.set_xticklabels(ys)
+            ax.set_xticks(range(0, len(active_items['Item Total']) + len(forecast), 12))
+            labels = ys + [str(int(ys[-1]) + i) for i in range(1, len(forecast) // 12 + 1)]
+            ax.set_xticklabels(labels)
+            months = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'}
+            print((month_0 + active_items['month'].iloc[-1]))
+            table = [[ months[(month_0 + active_items['month'].iloc[-1] + i) % 12 + 1] for i in range(12)]]
+            table.append(forecast)
+            print(table)
+            unique_set_table(self.tableWidget_9, table)
+            self.widget_3.canvas.figure = fig
+            self.widget_3.canvas.axes = ax
             self.forecast_flag = 1
-        return self.stackedWidget.setCurrentWidget(self.season_subpage)
+        return self.stackedWidget.setCurrentWidget(self.page_6)
         
 
 app = QtWidgets.QApplication(sys.argv)
