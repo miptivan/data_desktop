@@ -266,9 +266,6 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         return self.stackedWidget.setCurrentWidget(self.season_subpage)
         
 
-        
-        
-
 app = QtWidgets.QApplication(sys.argv)
 w = Ui()
 sys.exit(app.exec_())

@@ -3,7 +3,6 @@ import statsmodels.api as sm
 import pandas as pd
 import numpy as np
 from datetime import date
-import matplotlib.pyplot as plt
 import os
 
 
@@ -65,11 +64,11 @@ def seasonal_all(ys, path):
         active_items = active_items.groupby('month')['Item Total'].sum()
         active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
         active_items = active_items.iloc[:-1]
-        result = sm.tsa.seasonal_decompose(active_items['Item Total'].values, model='multiplicative', period=12)
+        result = sm.tsa.ExponentialSmoothing(active_items['Item Total'].values, seasonal_periods=12, trend='mul', seasonal='mul').fit()
 
         with open(path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
-            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.seasonal]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.season]) + '\n')
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]))
     return
 
@@ -82,10 +81,10 @@ def item_seasonal(ys, path, item):
         active_items = active_items.groupby('month')['Item Total'].sum()
         active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
         active_items = active_items.iloc[:-1]
-        result = sm.tsa.seasonal_decompose(active_items['Item Total'].values, model='multiplicative', period=12)
+        result = sm.tsa.ExponentialSmoothing(active_items['Item Total'].values, seasonal_periods=12, trend='mul', seasonal='mul').fit()
         
         with open(path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
-            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.seasonal]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.season]) + '\n')
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]))
     return
