@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>9</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1531,6 +1531,13 @@ height: 32px;
               <height>500</height>
              </size>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QHeaderView::section {
+background-color: rgb(94, 191, 255);
+border: none;
+height: 32px;
+}</string>
+            </property>
            </widget>
           </item>
           <item row="1" column="0">
@@ -1710,6 +1717,13 @@ font-weight: bold;
                  <width>16777215</width>
                  <height>550</height>
                 </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QHeaderView::section {
+background-color: rgb(94, 191, 255);
+border: none;
+height: 32px;
+}</string>
                </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
