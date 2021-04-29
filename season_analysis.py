@@ -51,6 +51,7 @@ def create_csv(ys, path):
         active_items['days'] = active_items['days'].apply(lambda x: x.days)
         active_items['dy'] = active_items['y'] - active_items['y'].min()
         active_items['month'] = active_items['Sale Date'].apply(lambda x: x.month)
+        active_items['real_month'] = active_items['month']
         active_items['month'] = active_items['month'] + active_items['dy']*12
         active_items.to_csv(path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
     return
@@ -62,7 +63,7 @@ def seasonal_all(ys, path):
         active_items = pd.read_csv(path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
         # cделаем здесь общий анализ по всем активным товарам
         active_items = active_items.groupby('month')['Item Total'].sum()
-        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])
         active_items = active_items.iloc[:-1]
         result = sm.tsa.ExponentialSmoothing(active_items['Item Total'].values, seasonal_periods=12, trend='mul', seasonal='mul').fit()
         forecast = result.forecast(12)
@@ -82,7 +83,7 @@ def item_seasonal(ys, path, item):
         active_items = pd.read_csv(path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
         active_items = active_items[active_items['Item Name'] == item]
         active_items = active_items.groupby('month')['Item Total'].sum()
-        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])
         active_items = active_items.iloc[:-1]
         result = sm.tsa.ExponentialSmoothing(active_items['Item Total'].values, seasonal_periods=12, trend='mul', seasonal='mul').fit()
         
