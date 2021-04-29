@@ -73,4 +73,19 @@ def seasonal_all(ys, path):
             f.write(result.seasonal)
     return
 
-def item_seasonal()
+def item_seasonal(ys, path, item):
+    list_dir = os.listdir(path)
+    if item + '_' + '_'.join([str(y) for y in ys]) + '.txt' not in list_dir:
+        create_csv(ys, path)
+        active_items = pd.read_csv(path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
+        active_items = active_items[active_items['Item Name'] == item]
+        active_items = active_items.groupby('month')['Item Total'].sum()
+        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+        active_items = active_items.iloc[:-1]
+        result = sm.tsa.seasonal_decompose(active_items['Item Total'].values, model='multiplicative', period=12)
+        
+        with open(path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
+            f.write(result.trend)
+            f.write(result.seasonal)
+            f.write(result.seasonal)
+    return
