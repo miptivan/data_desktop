@@ -65,11 +65,14 @@ def seasonal_all(ys, path):
         active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
         active_items = active_items.iloc[:-1]
         result = sm.tsa.ExponentialSmoothing(active_items['Item Total'].values, seasonal_periods=12, trend='mul', seasonal='mul').fit()
+        forecast = result.forecast(12)
 
         with open(path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.season]) + '\n')
-            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]))
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.level]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in forecast]))
     return
 
 def item_seasonal(ys, path, item):
@@ -86,5 +89,6 @@ def item_seasonal(ys, path, item):
         with open(path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.season]) + '\n')
-            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]))
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.level]))
     return

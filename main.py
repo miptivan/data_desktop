@@ -192,6 +192,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 trend = [float(s) if s != 'None' else None  for s in ss[0].split(', ')]
                 seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
                 resid = [float(s) if s != 'None' else None for s in ss[2].split(', ')]
+                level = [float(s) if s != 'None' else None for s in ss[3].split(', ')]
             active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
             items = list(pd.unique(active_items['Item Name']))
             for it in items:
@@ -202,9 +203,9 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             active_items = active_items.groupby('month')['Item Total'].sum()
             active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
             active_items = active_items.iloc[:-1]
-            fig, ax = plt.subplots(figsize=(4, 2), nrows=2, ncols=1)  # создаем график
+            fig, ax = plt.subplots(figsize=(4, 3), nrows=2, ncols=1)  # создаем график
             ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
-            ax[0].plot(range(len(trend)), trend, label='trend')
+            ax[0].plot(range(len(trend)), np.array(trend)*np.array(level)*np.array(seasonal), label='trend*level*seasonal')
             ax[0].legend()
             ax[0].set_xticks(range(0, len(trend), 12))
             ax[0].set_xticklabels(ys)
@@ -238,13 +239,14 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 trend = [float(s) if s != 'None' else None  for s in ss[0].split(', ')]
                 seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
                 resid = [float(s) if s != 'None' else None for s in ss[2].split(', ')]
+                level = [float(s) if s != 'None' else None for s in ss[3].split(', ')]
             # примерно здесь надо бы табличку заполнять...
             active_items = active_items.groupby('month')['Item Total'].sum()
             active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
             active_items = active_items.iloc[:-1]
-            fig, ax = plt.subplots(figsize=(4, 2), nrows=2, ncols=1)  # создаем график
+            fig, ax = plt.subplots(figsize=(4, 3), nrows=2, ncols=1)  # создаем график
             ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
-            ax[0].plot(range(len(trend)), trend, label='trend')
+            ax[0].plot(range(len(trend)), np.array(trend)*np.array(level)*np.array(seasonal), label='trend*level*seasonal')
             ax[0].legend()
             ax[0].set_xticks(range(0, len(trend), 12))
             yss = set()
@@ -264,6 +266,21 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             self.widget_2.canvas.axes = ax
 
         return self.stackedWidget.setCurrentWidget(self.season_subpage)
+    
+    def forecast_loader(self):
+        global ys
+        season_analysis.seasonal_all(ys, self.path)
+        with open(self.path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
+            ss = f.read().split('\n')
+            forecast = [float(s) if s != 'None' else None for s in ss[4].split(', ')]
+        active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
+        active_items = active_items.groupby('month')['Item Total'].sum()
+        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+        active_items = active_items.iloc[:-1]
+        fig, ax = plt.subplots(figsize=(5, 3))
+        ax.plot(range(len(active_items['Item Total'])), active_items['Item Total'].values)
+        #ax.plot(range(len(active_items['Item Total'])), model.season*(model.trend*model.level) + model.resid)
+        ax.plot(range(len(active_items['Item Total']) - 1, len(active_items['Item Total']) + len(forecast)), np.hstack((active_items['Item Total'].values[-1], forecast)))
         
 
 app = QtWidgets.QApplication(sys.argv)
