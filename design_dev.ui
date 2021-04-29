@@ -1404,7 +1404,7 @@ font-weight: bold;
             <x>0</x>
             <y>1</y>
             <width>702</width>
-            <height>661</height>
+            <height>761</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_9">
@@ -1413,7 +1413,13 @@ font-weight: bold;
              <property name="minimumSize">
               <size>
                <width>700</width>
-               <height>100</height>
+               <height>200</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>200</height>
               </size>
              </property>
              <property name="font">
