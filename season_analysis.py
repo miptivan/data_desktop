@@ -70,7 +70,7 @@ def seasonal_all(ys, path):
         with open(path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(result.trend)
             f.write(result.seasonal)
-            f.write(result.seasonal)
+            f.write(result.resid)
     return
 
 def item_seasonal(ys, path, item):
@@ -87,5 +87,8 @@ def item_seasonal(ys, path, item):
         with open(path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(result.trend)
             f.write(result.seasonal)
-            f.write(result.seasonal)
+            f.write(result.resid)
     return
+
+
+seasonal_all(range(2015, 2020), 'analysis')

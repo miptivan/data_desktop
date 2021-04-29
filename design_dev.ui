@@ -371,7 +371,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>6</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1309,6 +1309,43 @@ height: 32px;
              <set>Qt::AlignCenter</set>
             </property>
            </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QWidget" name="widget" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>500</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinAndMaxSize</enum>
+            </property>
+            <property name="rightMargin">
+             <number>11</number>
+            </property>
+            <item>
+             <widget class="QComboBox" name="comboBox_2">
+              <property name="minimumSize">
+               <size>
+                <width>500</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Выбрать</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>

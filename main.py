@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import os
 os.system('pyuic5 design_dev.ui -o design_dev.py')
 import design_dev
+import season_analysis
 
 
 list_dir = os.listdir('analysis')
@@ -44,6 +45,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.path = 'analysis/'
         self.abc_flag = 0
         self.main_flag = 0
+        self.season_flag = 0
         self.main_page_loader()
 
         self.browserButton.clicked.connect(self.pushButton_handler)
@@ -177,6 +179,28 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def settings_loader(self):
         self.lineEdit_4.setText(self.path)
         return self.stackedWidget.setCurrentWidget(self.settings_page)
+    
+    def season_page_loader(self):
+        if self.season_flag == 0:
+            global ys
+            season_analysis.seasonal_all(ys, self.path)
+            with open(self.path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'r'):
+                trend = exec(f.read())
+                seasonal = exec(f.read())
+                resid = exec(f.read())
+            fig, ax = plt.subplots(figsize=(6, 4))  # создаем график
+            ax.bar(range(3), [
+                abc_items.loc['A'],
+                abc_items.loc['B'],
+                abc_items.loc['C']
+            ])
+            ticklabels = ['A', 'B', 'C']
+            plt.xticks(range(len(ticklabels)), labels=ticklabels)
+
+            self.plot.canvas.axes.clear()
+            self.plot.canvas.figure.clear()
+            self.plot.canvas.figure = fig
+            self.plot.canvas.axes = ax
 
         
         
