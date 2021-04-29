@@ -47,20 +47,24 @@ def unique_set_table(widget, table):
     widget.setRowCount(len(table) - 1)
     for i in range(1, len(table)):
         for j in range(widget.columnCount()):
-            widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(str(round(table[i][j], 2))))
+            widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(str(table[i][j])))
     return
 
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
+        global ys
         self.setupUi(self)
         self.path = 'analysis/'
         self.abc_flag = 0
         self.main_flag = 0
         self.season_flag = 0
         self.forecast_flag = 0
-        self.main_page_loader()
-
+        if len(ys) == 0:
+            self.settings_loader()
+        else:
+            self.main_page_loader()
+    
         self.browserButton.clicked.connect(self.pushButton_handler)
         # page_1
         self.main_page_but.clicked.connect(self.main_page_loader)
@@ -118,7 +122,6 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         global ys
         ABC_analysis.abc(ys, self.path)
         state = self.comboBox.currentText()
-        print(state)
         all_items, active_items, disactive_items = items_page.items_info(ys, self.path)
         if state == 'Все':
             set_table(self.tableWidget, all_items)
@@ -260,10 +263,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 table.append([y])
             for i in range(1, len(table)):
                 df = active_items[active_items['y'] == float(ys[i-1])]
-                print(df)
                 df_1 = df.groupby('month')['Item Total'].sum()
                 for j in range(1, 13):
-                    #print(df)
                     if len(df[df['real_month'] == j]) == 0:
                         table[i].append('0, 0 usd')
                     else:
