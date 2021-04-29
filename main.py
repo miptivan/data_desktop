@@ -1,6 +1,7 @@
 # pyuic5 design.ui -o design.py
 from PyQt5 import QtWidgets, QtCore
 import pandas as pd
+import numpy as np
 import basket
 import sys
 import info_page
@@ -67,7 +68,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         # page_6
         self.settings_page_but.clicked.connect(self.settings_loader)
         # page_7
-        #self.button_page_7.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_1))
+        self.pushButton_4.clicked.connect(self.season_page_loader)
         # page_8
         #self.button_page_8.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.otschot_page))
 
@@ -123,6 +124,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 abc_items.loc['B'],
                 abc_items.loc['C']
             ])
+            ax.set_title('Количество товаров в группе')
             ticklabels = ['A', 'B', 'C']
             plt.xticks(range(len(ticklabels)), labels=ticklabels)
 
@@ -184,23 +186,67 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         if self.season_flag == 0:
             global ys
             season_analysis.seasonal_all(ys, self.path)
-            with open(self.path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'r'):
-                trend = exec(f.read())
-                seasonal = exec(f.read())
-                resid = exec(f.read())
-            fig, ax = plt.subplots(figsize=(6, 4))  # создаем график
-            ax.bar(range(3), [
-                abc_items.loc['A'],
-                abc_items.loc['B'],
-                abc_items.loc['C']
-            ])
-            ticklabels = ['A', 'B', 'C']
-            plt.xticks(range(len(ticklabels)), labels=ticklabels)
+            with open(self.path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
+                ss = f.read().split('\n')
+                trend = [float(s) if s != 'None' else None  for s in ss[0].split(', ')]
+                seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
+                resid = [float(s) if s != 'None' else None for s in ss[2].split(', ')]
+            active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
+            items = pd.unique(active_items['Item Name'])
+            self.comboBox_2.clear()
+            self.comboBox_2.addItems(items)
+            active_items = active_items.groupby('month')['Item Total'].sum()
+            active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+            active_items = active_items.iloc[:-1]
+            fig, ax = plt.subplots(figsize=(4, 2), nrows=2, ncols=1)  # создаем график
+            ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
+            ax[0].plot(range(len(trend)), trend, label='trend')
+            ax[0].legend()
+            ax[0].set_xticks(range(0, len(trend), 12))
+            ax[0].set_xticklabels(ys)
+            ax[1].plot(range(1, 13), seasonal[:12])
+            ax[1].set_title('Seasonal')
+            ax[0].set_title('All income')
+            ax[1].set_xlabel('month')
 
-            self.plot.canvas.axes.clear()
-            self.plot.canvas.figure.clear()
-            self.plot.canvas.figure = fig
-            self.plot.canvas.axes = ax
+            self.widget.canvas.axes.clear()
+            self.widget.canvas.figure.clear()
+            self.widget.canvas.figure = fig
+            self.widget.canvas.axes = ax
+
+            self.season_flag = 1
+        return self.stackedWidget.setCurrentWidget(self.season_page)
+    
+    def season_subpage_loader(self, item):
+        global ys
+        season_analysis.item_seasonal(ys, self.path, item)
+        with open(self.path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
+            ss = f.read().split('\n')
+            trend = [float(s) if s != 'None' else None  for s in ss[0].split(', ')]
+            seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
+            resid = [float(s) if s != 'None' else None for s in ss[2].split(', ')]
+        active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
+        active_items = active_items[active_items['Item Name'] == item]
+        # примерно здесь надо бы табличку заполнять...
+        active_items = active_items.groupby('month')['Item Total'].sum()
+        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+        active_items = active_items.iloc[:-1]
+        fig, ax = plt.subplots(figsize=(4, 2), nrows=2, ncols=1)  # создаем график
+        ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
+        ax[0].plot(range(len(trend)), trend, label='trend')
+        ax[0].legend()
+        ax[0].set_xticks(range(0, len(trend), 12))
+        ax[0].set_xticklabels(ys)
+        ax[1].plot(range(1, 13), seasonal[:12])
+        ax[1].set_title('Seasonal')
+        ax[0].set_title('All income')
+        ax[1].set_xlabel('month')
+
+        self.widget.canvas.axes.clear()
+        self.widget.canvas.figure.clear()
+        self.widget.canvas.figure = fig
+        self.widget.canvas.axes = ax
+        
 
         
         

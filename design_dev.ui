@@ -371,7 +371,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>6</number>
+         <number>7</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1311,7 +1311,7 @@ height: 32px;
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QWidget" name="widget" native="true">
+           <widget class="MplWidget" name="widget" native="true">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1349,7 +1349,50 @@ height: 32px;
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="season_subpage"/>
+        <widget class="QWidget" name="season_subpage">
+         <widget class="QWidget" name="verticalLayoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>-1</x>
+            <y>0</y>
+            <width>701</width>
+            <height>671</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_21">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QWidget" name="widget_2" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>350</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="tableWidget_8"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
         <widget class="QWidget" name="abc_analysis">
          <widget class="QLabel" name="label_18">
           <property name="geometry">

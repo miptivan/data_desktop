@@ -61,16 +61,16 @@ def seasonal_all(ys, path):
     if 'all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt' not in list_dir:
         create_csv(ys, path)
         active_items = pd.read_csv(path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
-        # зделаем здесь общий анализ по всем активным товарам
+        # cделаем здесь общий анализ по всем активным товарам
         active_items = active_items.groupby('month')['Item Total'].sum()
         active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
         active_items = active_items.iloc[:-1]
         result = sm.tsa.seasonal_decompose(active_items['Item Total'].values, model='multiplicative', period=12)
-        
+
         with open(path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
-            f.write(result.trend)
-            f.write(result.seasonal)
-            f.write(result.resid)
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.seasonal]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]))
     return
 
 def item_seasonal(ys, path, item):
@@ -85,10 +85,7 @@ def item_seasonal(ys, path, item):
         result = sm.tsa.seasonal_decompose(active_items['Item Total'].values, model='multiplicative', period=12)
         
         with open(path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
-            f.write(result.trend)
-            f.write(result.seasonal)
-            f.write(result.resid)
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.seasonal]) + '\n')
+            f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]))
     return
-
-
-seasonal_all(range(2015, 2020), 'analysis')
