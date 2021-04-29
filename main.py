@@ -82,7 +82,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.pushButton_4.clicked.connect(self.season_page_loader)
         self.pushButton.clicked.connect(self.season_subpage_loader)
         # page_8
-        #self.button_page_8.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.otschot_page))
+        self.pushButton_3.clicked.connect(self.forecast_loader)
 
         self.show()
     
@@ -292,19 +292,26 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         return self.stackedWidget.setCurrentWidget(self.season_subpage)
     
     def forecast_loader(self):
-        global ys
-        season_analysis.seasonal_all(ys, self.path)
-        with open(self.path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
-            ss = f.read().split('\n')
-            forecast = [float(s) if s != 'None' else None for s in ss[4].split(', ')]
-        active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
-        active_items = active_items.groupby('month')['Item Total'].sum()
-        active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
-        active_items = active_items.iloc[:-1]
-        fig, ax = plt.subplots(figsize=(5, 3))
-        ax.plot(range(len(active_items['Item Total'])), active_items['Item Total'].values)
-        #ax.plot(range(len(active_items['Item Total'])), model.season*(model.trend*model.level) + model.resid)
-        ax.plot(range(len(active_items['Item Total']) - 1, len(active_items['Item Total']) + len(forecast)), np.hstack((active_items['Item Total'].values[-1], forecast)))
+        if self.forecast_flag == 0:
+            global ys
+            season_analysis.seasonal_all(ys, self.path)
+            with open(self.path + '/all_seasons_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
+                ss = f.read().split('\n')
+                forecast = [float(s) if s != 'None' else None for s in ss[4].split(', ')]
+            active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
+            df = active_items.copy()
+            active_items = active_items.groupby('month')['Item Total'].sum()
+            active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+            active_items = active_items.iloc[:-1]
+            fig, ax = plt.subplots(figsize=(5, 3))
+            ax.plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
+            #ax.plot(range(len(active_items['Item Total'])), model.season*(model.trend*model.level) + model.resid)
+            ax.plot(range(len(active_items['Item Total']) - 1, len(active_items['Item Total']) + len(forecast)), np.hstack((active_items['Item Total'].values[-1], forecast)), label='forecast')
+            ax.set_title('Forecast for next 12 months')
+            ax.set_xticks(range(0, len(trend), 12))
+            ax.set_xticklabels(ys)
+            self.forecast_flag = 1
+        return self.stackedWidget.setCurrentWidget(self.season_subpage)
         
 
 app = QtWidgets.QApplication(sys.argv)
