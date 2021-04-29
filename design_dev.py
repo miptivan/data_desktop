@@ -11,9 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(900, 700)
-        MainWindow.setMinimumSize(QtCore.QSize(900, 700))
-        MainWindow.setMaximumSize(QtCore.QSize(900, 700))
+        MainWindow.resize(900, 1000)
+        MainWindow.setMinimumSize(QtCore.QSize(900, 1000))
+        MainWindow.setMaximumSize(QtCore.QSize(900, 1000))
         MainWindow.setStyleSheet("*{\n"
 "font-family: Verdana;\n"
 "color: rgb(255, 255, 255);\n"
@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 900, 700))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 900, 1000))
         self.frame.setMinimumSize(QtCore.QSize(900, 700))
         self.frame.setStyleSheet("background-color: rgb(94, 191, 255);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -790,6 +790,7 @@ class Ui_MainWindow(object):
         self.tableWidget_8 = QtWidgets.QTableWidget(self.widget1)
         self.tableWidget_8.setMinimumSize(QtCore.QSize(0, 550))
         self.tableWidget_8.setMaximumSize(QtCore.QSize(16777215, 550))
+        self.tableWidget_8.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tableWidget_8.setObjectName("tableWidget_8")
         self.tableWidget_8.setColumnCount(0)
         self.tableWidget_8.setRowCount(0)

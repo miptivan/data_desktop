@@ -16,7 +16,7 @@ def forecast(ys, path):
         res = model.forecast(12)
         print(model.trend)
         plt.plot(range(len(active_items['Item Total'])), active_items['Item Total'].values)
-        plt.plot(range(len(active_items['Item Total'])), model.season*model.trend*model.)
+        plt.plot(range(len(active_items['Item Total'])), model.season*(model.trend*model.level) + model.resid)
         plt.plot(range(len(active_items['Item Total']) - 1, len(active_items['Item Total']) + len(res)), np.hstack((active_items['Item Total'].values[-1], res)))
         plt.show()
     
