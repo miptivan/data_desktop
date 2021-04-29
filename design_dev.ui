@@ -1374,6 +1374,13 @@ height: 32px;
             </widget>
            </item>
            <item>
+            <widget class="QLabel" name="label_23">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <item>
               <widget class="MplWidget" name="widget_2" native="true">
