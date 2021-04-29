@@ -47,7 +47,7 @@ def unique_set_table(widget, table):
     widget.setRowCount(len(table) - 1)
     for i in range(1, len(table)):
         for j in range(widget.columnCount()):
-            widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(table[i][j]))
+            widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(str(round(table[i][j], 2))))
     return
 
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
@@ -69,7 +69,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         # refresh year on info_page
         self.submit_but.clicked.connect(self.set_info_page)
         # page_3
-        self.items_page_but.clicked.connect(self.item_page_loader)
+        self.items_page_but.clicked.connect(self.set_item_page)
+        self.items_submit.clicked.connect(self.set_item_page)
         # page_4
         self.abc_analysis_but.clicked.connect(self.abc_page_loader)
         self.a_but.clicked.connect(self.set_letter_a)
@@ -113,17 +114,19 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             self.main_flag = 1
         return self.stackedWidget.setCurrentWidget(self.main_page)
     
-    def item_page_loader(self):
-        return self.set_item_page()
-    
     def set_item_page(self):
-        state = self.comboBox_3.currentText()
-        first_sale, all_count, all_sold, active_items = items_page.items_info(ys)
-        set_table(self.table_top, active_items)
-        self.label_5.setText(first_sale)
-        self.sold.setText(all_count)
-        self.profit.setText(all_sold)
-        return self.stackedWidget.setCurrentWidget(self.main_page)
+        global ys
+        ABC_analysis.abc(ys, self.path)
+        state = self.comboBox.currentText()
+        print(state)
+        all_items, active_items, disactive_items = items_page.items_info(ys, self.path)
+        if state == 'Все':
+            set_table(self.tableWidget, all_items)
+        elif state == 'Активные':
+            set_table(self.tableWidget, active_items)
+        else:
+            set_table(self.tableWidget, disactive_items)
+        return self.stackedWidget.setCurrentWidget(self.items_page)
     
     def abc_page_loader(self):
         if self.abc_flag == 0:

@@ -792,6 +792,11 @@ class Ui_MainWindow(object):
         self.widget_3.setObjectName("widget_3")
         self.horizontalLayout_13.addWidget(self.widget_3)
         self.tableWidget_9 = QtWidgets.QTableWidget(self.page_6)
+        self.tableWidget_9.setStyleSheet("QHeaderView::section {\n"
+"    background-color: rgb(94, 191, 255);\n"
+"    border: none;\n"
+"    height: 32px;\n"
+"}")
         self.tableWidget_9.setObjectName("tableWidget_9")
         self.tableWidget_9.setColumnCount(0)
         self.tableWidget_9.setRowCount(0)
@@ -816,6 +821,11 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addWidget(self.label_17, 0, 0, 1, 1)
         self.widget = MplWidget(self.season_page)
         self.widget.setMinimumSize(QtCore.QSize(0, 500))
+        self.widget.setStyleSheet("QHeaderView::section {\n"
+"    background-color: rgb(94, 191, 255);\n"
+"    border: none;\n"
+"    height: 32px;\n"
+"}")
         self.widget.setObjectName("widget")
         self.gridLayout_6.addWidget(self.widget, 2, 0, 1, 1)
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
@@ -874,13 +884,8 @@ class Ui_MainWindow(object):
         self.label_23.setGeometry(QtCore.QRect(0, 108, 16, 16))
         self.label_23.setText("")
         self.label_23.setObjectName("label_23")
-        self.layoutWidget1 = QtWidgets.QWidget(self.season_subpage)
-        self.layoutWidget1.setGeometry(QtCore.QRect(1, 2, 1202, 661))
-        self.layoutWidget1.setObjectName("layoutWidget1")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.layoutWidget1)
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.label_21 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_21 = QtWidgets.QLabel(self.season_subpage)
+        self.label_21.setGeometry(QtCore.QRect(2, 3, 1100, 100))
         self.label_21.setMinimumSize(QtCore.QSize(1100, 100))
         self.label_21.setMaximumSize(QtCore.QSize(1100, 100))
         font = QtGui.QFont()
@@ -892,33 +897,29 @@ class Ui_MainWindow(object):
         self.label_21.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.label_21.setWordWrap(True)
         self.label_21.setObjectName("label_21")
-        self.verticalLayout_8.addWidget(self.label_21)
-        self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        self.widget_2 = MplWidget(self.layoutWidget1)
+        self.widget_2 = MplWidget(self.season_subpage)
+        self.widget_2.setGeometry(QtCore.QRect(3, 111, 350, 550))
         self.widget_2.setMinimumSize(QtCore.QSize(350, 550))
         self.widget_2.setMaximumSize(QtCore.QSize(16777215, 550))
         self.widget_2.setObjectName("widget_2")
-        self.horizontalLayout_12.addWidget(self.widget_2)
-        self.tableWidget_8 = QtWidgets.QTableWidget(self.layoutWidget1)
+        self.tableWidget_8 = QtWidgets.QTableWidget(self.season_subpage)
+        self.tableWidget_8.setGeometry(QtCore.QRect(360, 111, 731, 550))
         self.tableWidget_8.setMinimumSize(QtCore.QSize(0, 550))
         self.tableWidget_8.setMaximumSize(QtCore.QSize(16777215, 550))
         self.tableWidget_8.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tableWidget_8.setObjectName("tableWidget_8")
         self.tableWidget_8.setColumnCount(0)
         self.tableWidget_8.setRowCount(0)
-        self.horizontalLayout_12.addWidget(self.tableWidget_8)
-        self.verticalLayout_8.addLayout(self.horizontalLayout_12)
         self.stackedWidget.addWidget(self.season_subpage)
         self.abc_analysis = QtWidgets.QWidget()
         self.abc_analysis.setObjectName("abc_analysis")
-        self.layoutWidget2 = QtWidgets.QWidget(self.abc_analysis)
-        self.layoutWidget2.setGeometry(QtCore.QRect(10, 0, 1102, 661))
-        self.layoutWidget2.setObjectName("layoutWidget2")
-        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.layoutWidget2)
+        self.layoutWidget1 = QtWidgets.QWidget(self.abc_analysis)
+        self.layoutWidget1.setGeometry(QtCore.QRect(10, 0, 1102, 661))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
-        self.label_18 = QtWidgets.QLabel(self.layoutWidget2)
+        self.label_18 = QtWidgets.QLabel(self.layoutWidget1)
         self.label_18.setMinimumSize(QtCore.QSize(1100, 0))
         self.label_18.setMaximumSize(QtCore.QSize(1100, 16777215))
         font = QtGui.QFont()
@@ -934,12 +935,12 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.plot = MplWidget(self.layoutWidget2)
+        self.plot = MplWidget(self.layoutWidget1)
         self.plot.setMinimumSize(QtCore.QSize(300, 0))
         self.plot.setMaximumSize(QtCore.QSize(300, 250))
         self.plot.setObjectName("plot")
         self.horizontalLayout_5.addWidget(self.plot)
-        self.tableWidget_4 = QtWidgets.QTableWidget(self.layoutWidget2)
+        self.tableWidget_4 = QtWidgets.QTableWidget(self.layoutWidget1)
         self.tableWidget_4.setMinimumSize(QtCore.QSize(200, 0))
         self.tableWidget_4.setStyleSheet("QHeaderView::section {\n"
 "    background-color: rgb(94, 191, 255);\n"
@@ -953,7 +954,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.a_but = QtWidgets.QPushButton(self.layoutWidget2)
+        self.a_but = QtWidgets.QPushButton(self.layoutWidget1)
         self.a_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.a_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -975,7 +976,7 @@ class Ui_MainWindow(object):
 "}")
         self.a_but.setObjectName("a_but")
         self.horizontalLayout_6.addWidget(self.a_but)
-        self.b_but = QtWidgets.QPushButton(self.layoutWidget2)
+        self.b_but = QtWidgets.QPushButton(self.layoutWidget1)
         self.b_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.b_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -997,7 +998,7 @@ class Ui_MainWindow(object):
 "}")
         self.b_but.setObjectName("b_but")
         self.horizontalLayout_6.addWidget(self.b_but)
-        self.c_but = QtWidgets.QPushButton(self.layoutWidget2)
+        self.c_but = QtWidgets.QPushButton(self.layoutWidget1)
         self.c_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.c_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -1052,7 +1053,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
