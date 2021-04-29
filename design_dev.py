@@ -11,9 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(900, 1000)
-        MainWindow.setMinimumSize(QtCore.QSize(900, 1000))
-        MainWindow.setMaximumSize(QtCore.QSize(900, 1000))
+        MainWindow.resize(1300, 700)
+        MainWindow.setMinimumSize(QtCore.QSize(1300, 700))
+        MainWindow.setMaximumSize(QtCore.QSize(1300, 700))
         MainWindow.setStyleSheet("*{\n"
 "font-family: Verdana;\n"
 "color: rgb(255, 255, 255);\n"
@@ -21,14 +21,15 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 900, 1000))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 1300, 700))
         self.frame.setMinimumSize(QtCore.QSize(900, 700))
+        self.frame.setMaximumSize(QtCore.QSize(16777215, 700))
         self.frame.setStyleSheet("background-color: rgb(94, 191, 255);")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.layoutWidget = QtWidgets.QWidget(self.frame)
-        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 868, 672))
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 1261, 672))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
@@ -36,6 +37,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QtWidgets.QVBoxLayout()
         self.verticalLayout_12.setObjectName("verticalLayout_12")
         self.main_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.main_page_but.setMinimumSize(QtCore.QSize(150, 0))
+        self.main_page_but.setMaximumSize(QtCore.QSize(150, 16777215))
         self.main_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.main_page_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -58,6 +61,8 @@ class Ui_MainWindow(object):
         self.main_page_but.setObjectName("main_page_but")
         self.verticalLayout_12.addWidget(self.main_page_but)
         self.info_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.info_page_but.setMinimumSize(QtCore.QSize(150, 0))
+        self.info_page_but.setMaximumSize(QtCore.QSize(150, 16777215))
         self.info_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.info_page_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -80,6 +85,8 @@ class Ui_MainWindow(object):
         self.info_page_but.setObjectName("info_page_but")
         self.verticalLayout_12.addWidget(self.info_page_but)
         self.settings_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.settings_page_but.setMinimumSize(QtCore.QSize(150, 0))
+        self.settings_page_but.setMaximumSize(QtCore.QSize(150, 16777215))
         self.settings_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.settings_page_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -102,6 +109,8 @@ class Ui_MainWindow(object):
         self.settings_page_but.setObjectName("settings_page_but")
         self.verticalLayout_12.addWidget(self.settings_page_but)
         self.items_page_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.items_page_but.setMinimumSize(QtCore.QSize(150, 0))
+        self.items_page_but.setMaximumSize(QtCore.QSize(150, 16777215))
         self.items_page_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.items_page_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -124,6 +133,8 @@ class Ui_MainWindow(object):
         self.items_page_but.setObjectName("items_page_but")
         self.verticalLayout_12.addWidget(self.items_page_but)
         self.basket_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.basket_but.setMinimumSize(QtCore.QSize(150, 0))
+        self.basket_but.setMaximumSize(QtCore.QSize(150, 16777215))
         self.basket_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.basket_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -146,6 +157,8 @@ class Ui_MainWindow(object):
         self.basket_but.setObjectName("basket_but")
         self.verticalLayout_12.addWidget(self.basket_but)
         self.pushButton_3 = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_3.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_3.setMaximumSize(QtCore.QSize(150, 16777215))
         self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -168,6 +181,8 @@ class Ui_MainWindow(object):
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout_12.addWidget(self.pushButton_3)
         self.pushButton_4 = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_4.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton_4.setMaximumSize(QtCore.QSize(150, 16777215))
         self.pushButton_4.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_4.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -190,6 +205,8 @@ class Ui_MainWindow(object):
         self.pushButton_4.setObjectName("pushButton_4")
         self.verticalLayout_12.addWidget(self.pushButton_4)
         self.abc_analysis_but = QtWidgets.QPushButton(self.layoutWidget)
+        self.abc_analysis_but.setMinimumSize(QtCore.QSize(150, 0))
+        self.abc_analysis_but.setMaximumSize(QtCore.QSize(150, 16777215))
         self.abc_analysis_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.abc_analysis_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -215,8 +232,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.addItem(spacerItem)
         self.horizontalLayout_9.addLayout(self.verticalLayout_12)
         self.stackedWidget = QtWidgets.QStackedWidget(self.layoutWidget)
-        self.stackedWidget.setMinimumSize(QtCore.QSize(700, 670))
-        self.stackedWidget.setMaximumSize(QtCore.QSize(700, 670))
+        self.stackedWidget.setMinimumSize(QtCore.QSize(1100, 670))
+        self.stackedWidget.setMaximumSize(QtCore.QSize(1100, 670))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(40)
@@ -319,8 +336,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.addLayout(self.horizontalLayout)
         self.gridLayout.addLayout(self.verticalLayout_11, 1, 0, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.main_page)
-        self.label_19.setMinimumSize(QtCore.QSize(700, 70))
-        self.label_19.setMaximumSize(QtCore.QSize(700, 70))
+        self.label_19.setMinimumSize(QtCore.QSize(1100, 70))
+        self.label_19.setMaximumSize(QtCore.QSize(1100, 70))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(24)
@@ -377,6 +394,10 @@ class Ui_MainWindow(object):
         font.setFamily("Verdana")
         font.setPointSize(14)
         self.lineEdit_4.setFont(font)
+        self.lineEdit_4.setStyleSheet("QLineEdit{\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"}")
         self.lineEdit_4.setReadOnly(True)
         self.lineEdit_4.setClearButtonEnabled(False)
         self.lineEdit_4.setObjectName("lineEdit_4")
@@ -404,8 +425,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.addWidget(self.browserButton)
         self.gridLayout_8.addLayout(self.horizontalLayout_10, 1, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.settings_page)
-        self.label_2.setMinimumSize(QtCore.QSize(700, 70))
-        self.label_2.setMaximumSize(QtCore.QSize(700, 70))
+        self.label_2.setMinimumSize(QtCore.QSize(1100, 70))
+        self.label_2.setMaximumSize(QtCore.QSize(1100, 70))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(24)
@@ -416,6 +437,10 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.gridLayout_8.addWidget(self.label_2, 0, 0, 1, 1)
         self.label_20 = QtWidgets.QLabel(self.settings_page)
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setPointSize(10)
+        self.label_20.setFont(font)
         self.label_20.setCursor(QtGui.QCursor(QtCore.Qt.SizeFDiagCursor))
         self.label_20.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_20.setObjectName("label_20")
@@ -426,8 +451,8 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.items_page)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.label_3 = QtWidgets.QLabel(self.items_page)
-        self.label_3.setMinimumSize(QtCore.QSize(700, 0))
-        self.label_3.setMaximumSize(QtCore.QSize(700, 16777215))
+        self.label_3.setMinimumSize(QtCore.QSize(1100, 0))
+        self.label_3.setMaximumSize(QtCore.QSize(1100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(24)
@@ -448,7 +473,17 @@ class Ui_MainWindow(object):
         font.setFamily("Verdana")
         font.setPointSize(10)
         self.comboBox.setFont(font)
-        self.comboBox.setStyleSheet("")
+        self.comboBox.setStyleSheet("QComboBox {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 3px;\n"
+"    min-width: 6em;\n"
+"    padding: 5px;\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    width: 30px;\n"
+"    height: 30px;\n"
+"}\n"
+"")
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -519,10 +554,23 @@ class Ui_MainWindow(object):
         self.label_13.setObjectName("label_13")
         self.horizontalLayout_2.addWidget(self.label_13)
         self.comboBox_3 = QtWidgets.QComboBox(self.info_page)
+        self.comboBox_3.setMinimumSize(QtCore.QSize(108, 34))
+        self.comboBox_3.setMaximumSize(QtCore.QSize(16777215, 34))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(14)
         self.comboBox_3.setFont(font)
+        self.comboBox_3.setStyleSheet("QComboBox {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 3px;\n"
+"    min-width: 6em;\n"
+"    padding: 5px;\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    width: 30px;\n"
+"    height: 30px;\n"
+"}\n"
+"")
         self.comboBox_3.setObjectName("comboBox_3")
         self.horizontalLayout_2.addWidget(self.comboBox_3)
         self.submit_but = QtWidgets.QPushButton(self.info_page)
@@ -561,6 +609,7 @@ class Ui_MainWindow(object):
         font.setFamily("Verdana")
         font.setPointSize(10)
         self.label_11.setFont(font)
+        self.label_11.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_11.setObjectName("label_11")
         self.verticalLayout_2.addWidget(self.label_11)
         self.label_10 = QtWidgets.QLabel(self.info_page)
@@ -570,6 +619,7 @@ class Ui_MainWindow(object):
         self.label_10.setFont(font)
         self.label_10.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.label_10.setAutoFillBackground(False)
+        self.label_10.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_10.setObjectName("label_10")
         self.verticalLayout_2.addWidget(self.label_10)
         self.label_12 = QtWidgets.QLabel(self.info_page)
@@ -577,18 +627,43 @@ class Ui_MainWindow(object):
         font.setFamily("Verdana")
         font.setPointSize(10)
         self.label_12.setFont(font)
+        self.label_12.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_12.setObjectName("label_12")
         self.verticalLayout_2.addWidget(self.label_12)
         self.horizontalLayout_3.addLayout(self.verticalLayout_2)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.lineEdit = QtWidgets.QLineEdit(self.info_page)
+        self.lineEdit.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 3px;\n"
+"    min-width: 6em;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"")
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout_3.addWidget(self.lineEdit)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.info_page)
+        self.lineEdit_2.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 3px;\n"
+"    min-width: 6em;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.verticalLayout_3.addWidget(self.lineEdit_2)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.info_page)
+        self.lineEdit_3.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 3px;\n"
+"    min-width: 6em;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.verticalLayout_3.addWidget(self.lineEdit_3)
         self.horizontalLayout_3.addLayout(self.verticalLayout_3)
@@ -608,6 +683,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_15.setFont(font)
+        self.label_15.setStyleSheet("border: 1px solid white;\n"
+"border-radius: 2px;")
         self.label_15.setAlignment(QtCore.Qt.AlignCenter)
         self.label_15.setObjectName("label_15")
         self.verticalLayout_4.addWidget(self.label_15)
@@ -616,6 +693,10 @@ class Ui_MainWindow(object):
 "    background-color: rgb(94, 191, 255);\n"
 "    border: none;\n"
 "    height: 32px;\n"
+"}\n"
+"QTableWidget{\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
 "}")
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(0)
@@ -633,6 +714,8 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.label_14.setFont(font)
+        self.label_14.setStyleSheet("border: 1px solid white;\n"
+"border-radius: 2px;")
         self.label_14.setAlignment(QtCore.Qt.AlignCenter)
         self.label_14.setObjectName("label_14")
         self.verticalLayout_5.addWidget(self.label_14)
@@ -641,6 +724,10 @@ class Ui_MainWindow(object):
 "    background-color: rgb(94, 191, 255);\n"
 "    border: none;\n"
 "    height: 32px;\n"
+"}\n"
+"QTableWidget{\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
 "}")
         self.tableWidget_3.setObjectName("tableWidget_3")
         self.tableWidget_3.setColumnCount(0)
@@ -657,8 +744,8 @@ class Ui_MainWindow(object):
         self.gridLayout_4 = QtWidgets.QGridLayout(self.basket_page)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.label_9 = QtWidgets.QLabel(self.basket_page)
-        self.label_9.setMinimumSize(QtCore.QSize(700, 70))
-        self.label_9.setMaximumSize(QtCore.QSize(700, 70))
+        self.label_9.setMinimumSize(QtCore.QSize(1100, 70))
+        self.label_9.setMaximumSize(QtCore.QSize(1100, 70))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(24)
@@ -724,14 +811,28 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setContentsMargins(-1, -1, 11, -1)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.comboBox_2 = QtWidgets.QComboBox(self.season_page)
-        self.comboBox_2.setMinimumSize(QtCore.QSize(500, 0))
+        self.comboBox_2.setMinimumSize(QtCore.QSize(108, 34))
+        self.comboBox_2.setMaximumSize(QtCore.QSize(500, 34))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(14)
         self.comboBox_2.setFont(font)
+        self.comboBox_2.setStyleSheet("QComboBox {\n"
+"    border: 1px solid white;\n"
+"    border-radius: 3px;\n"
+"    min-width: 6em;\n"
+"    padding: 5px;\n"
+"}\n"
+"QComboBox::drop-down {\n"
+"    width: 30px;\n"
+"    height: 30px;\n"
+"}\n"
+"")
         self.comboBox_2.setObjectName("comboBox_2")
         self.horizontalLayout_11.addWidget(self.comboBox_2)
         self.pushButton = QtWidgets.QPushButton(self.season_page)
+        self.pushButton.setMinimumSize(QtCore.QSize(150, 0))
+        self.pushButton.setMaximumSize(QtCore.QSize(150, 16777215))
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -761,15 +862,15 @@ class Ui_MainWindow(object):
         self.label_23.setGeometry(QtCore.QRect(0, 108, 16, 16))
         self.label_23.setText("")
         self.label_23.setObjectName("label_23")
-        self.widget1 = QtWidgets.QWidget(self.season_subpage)
-        self.widget1.setGeometry(QtCore.QRect(1, 2, 702, 661))
-        self.widget1.setObjectName("widget1")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget1)
+        self.layoutWidget1 = QtWidgets.QWidget(self.season_subpage)
+        self.layoutWidget1.setGeometry(QtCore.QRect(1, 2, 1202, 661))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.layoutWidget1)
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.label_21 = QtWidgets.QLabel(self.widget1)
-        self.label_21.setMinimumSize(QtCore.QSize(700, 100))
-        self.label_21.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.label_21 = QtWidgets.QLabel(self.layoutWidget1)
+        self.label_21.setMinimumSize(QtCore.QSize(1100, 100))
+        self.label_21.setMaximumSize(QtCore.QSize(1100, 100))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(14)
@@ -782,12 +883,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.addWidget(self.label_21)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        self.widget_2 = MplWidget(self.widget1)
+        self.widget_2 = MplWidget(self.layoutWidget1)
         self.widget_2.setMinimumSize(QtCore.QSize(350, 550))
         self.widget_2.setMaximumSize(QtCore.QSize(16777215, 550))
         self.widget_2.setObjectName("widget_2")
         self.horizontalLayout_12.addWidget(self.widget_2)
-        self.tableWidget_8 = QtWidgets.QTableWidget(self.widget1)
+        self.tableWidget_8 = QtWidgets.QTableWidget(self.layoutWidget1)
         self.tableWidget_8.setMinimumSize(QtCore.QSize(0, 550))
         self.tableWidget_8.setMaximumSize(QtCore.QSize(16777215, 550))
         self.tableWidget_8.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -799,8 +900,15 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.season_subpage)
         self.abc_analysis = QtWidgets.QWidget()
         self.abc_analysis.setObjectName("abc_analysis")
-        self.label_18 = QtWidgets.QLabel(self.abc_analysis)
-        self.label_18.setGeometry(QtCore.QRect(50, 0, 561, 48))
+        self.layoutWidget2 = QtWidgets.QWidget(self.abc_analysis)
+        self.layoutWidget2.setGeometry(QtCore.QRect(10, 0, 1102, 661))
+        self.layoutWidget2.setObjectName("layoutWidget2")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.layoutWidget2)
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.label_18 = QtWidgets.QLabel(self.layoutWidget2)
+        self.label_18.setMinimumSize(QtCore.QSize(1100, 0))
+        self.label_18.setMaximumSize(QtCore.QSize(1100, 16777215))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(24)
@@ -809,20 +917,17 @@ class Ui_MainWindow(object):
         self.label_18.setFont(font)
         self.label_18.setAlignment(QtCore.Qt.AlignCenter)
         self.label_18.setObjectName("label_18")
-        self.layoutWidget1 = QtWidgets.QWidget(self.abc_analysis)
-        self.layoutWidget1.setGeometry(QtCore.QRect(20, 60, 671, 466))
-        self.layoutWidget1.setObjectName("layoutWidget1")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.layoutWidget1)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_13.addWidget(self.label_18)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.plot = MplWidget(self.layoutWidget1)
+        self.plot = MplWidget(self.layoutWidget2)
         self.plot.setMinimumSize(QtCore.QSize(300, 0))
         self.plot.setMaximumSize(QtCore.QSize(300, 250))
         self.plot.setObjectName("plot")
         self.horizontalLayout_5.addWidget(self.plot)
-        self.tableWidget_4 = QtWidgets.QTableWidget(self.layoutWidget1)
+        self.tableWidget_4 = QtWidgets.QTableWidget(self.layoutWidget2)
         self.tableWidget_4.setMinimumSize(QtCore.QSize(200, 0))
         self.tableWidget_4.setStyleSheet("QHeaderView::section {\n"
 "    background-color: rgb(94, 191, 255);\n"
@@ -836,7 +941,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_5)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.a_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.a_but = QtWidgets.QPushButton(self.layoutWidget2)
         self.a_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.a_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -858,7 +963,7 @@ class Ui_MainWindow(object):
 "}")
         self.a_but.setObjectName("a_but")
         self.horizontalLayout_6.addWidget(self.a_but)
-        self.b_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.b_but = QtWidgets.QPushButton(self.layoutWidget2)
         self.b_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.b_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -880,7 +985,7 @@ class Ui_MainWindow(object):
 "}")
         self.b_but.setObjectName("b_but")
         self.horizontalLayout_6.addWidget(self.b_but)
-        self.c_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.c_but = QtWidgets.QPushButton(self.layoutWidget2)
         self.c_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.c_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
@@ -903,14 +1008,14 @@ class Ui_MainWindow(object):
         self.c_but.setObjectName("c_but")
         self.horizontalLayout_6.addWidget(self.c_but)
         self.verticalLayout.addLayout(self.horizontalLayout_6)
+        self.verticalLayout_13.addLayout(self.verticalLayout)
         self.stackedWidget.addWidget(self.abc_analysis)
         self.abc_subpage = QtWidgets.QWidget()
         self.abc_subpage.setObjectName("abc_subpage")
-        self.gridLayout_7 = QtWidgets.QGridLayout(self.abc_subpage)
-        self.gridLayout_7.setObjectName("gridLayout_7")
         self.label_22 = QtWidgets.QLabel(self.abc_subpage)
-        self.label_22.setMinimumSize(QtCore.QSize(700, 70))
-        self.label_22.setMaximumSize(QtCore.QSize(700, 70))
+        self.label_22.setGeometry(QtCore.QRect(12, 12, 1100, 70))
+        self.label_22.setMinimumSize(QtCore.QSize(1100, 70))
+        self.label_22.setMaximumSize(QtCore.QSize(1100, 70))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(24)
@@ -919,8 +1024,9 @@ class Ui_MainWindow(object):
         self.label_22.setFont(font)
         self.label_22.setAlignment(QtCore.Qt.AlignCenter)
         self.label_22.setObjectName("label_22")
-        self.gridLayout_7.addWidget(self.label_22, 0, 0, 1, 1)
         self.tableWidget_7 = QtWidgets.QTableWidget(self.abc_subpage)
+        self.tableWidget_7.setGeometry(QtCore.QRect(230, 90, 661, 561))
+        self.tableWidget_7.setMaximumSize(QtCore.QSize(1100, 16777215))
         self.tableWidget_7.setStyleSheet("QHeaderView::section {\n"
 "background-color: rgb(94, 191, 255);\n"
 "border: none;\n"
@@ -929,13 +1035,12 @@ class Ui_MainWindow(object):
         self.tableWidget_7.setObjectName("tableWidget_7")
         self.tableWidget_7.setColumnCount(0)
         self.tableWidget_7.setRowCount(0)
-        self.gridLayout_7.addWidget(self.tableWidget_7, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.abc_subpage)
         self.horizontalLayout_9.addWidget(self.stackedWidget)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

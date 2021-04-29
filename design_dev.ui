@@ -62,7 +62,7 @@ color: rgb(255, 255, 255);
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -473,7 +473,11 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
+<<<<<<< HEAD
          <number>7</number>
+=======
+         <number>6</number>
+>>>>>>> 7b480d32b41e4ec27ad8d989c6431b18b3ead04b
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1531,13 +1535,6 @@ height: 32px;
               <height>500</height>
              </size>
             </property>
-            <property name="styleSheet">
-             <string notr="true">QHeaderView::section {
-background-color: rgb(94, 191, 255);
-border: none;
-height: 32px;
-}</string>
-            </property>
            </widget>
           </item>
           <item row="1" column="0">
@@ -1643,7 +1640,11 @@ font-weight: bold;
            <string/>
           </property>
          </widget>
+<<<<<<< HEAD
          <widget class="QLabel" name="label_21">
+=======
+         <widget class="QWidget" name="layoutWidget">
+>>>>>>> 7b480d32b41e4ec27ad8d989c6431b18b3ead04b
           <property name="geometry">
            <rect>
             <x>2</x>
@@ -1652,6 +1653,7 @@ font-weight: bold;
             <height>100</height>
            </rect>
           </property>
+<<<<<<< HEAD
           <property name="minimumSize">
            <size>
             <width>1100</width>
@@ -1735,10 +1737,86 @@ height: 32px;
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
+=======
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_21">
+             <property name="minimumSize">
+              <size>
+               <width>1100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>1100</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Verdana</family>
+               <pointsize>14</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignHCenter|Qt::AlignTop</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="MplWidget" name="widget_2" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>350</width>
+                 <height>550</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>550</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="tableWidget_8">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>550</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>550</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+>>>>>>> 7b480d32b41e4ec27ad8d989c6431b18b3ead04b
          </widget>
         </widget>
         <widget class="QWidget" name="abc_analysis">
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>10</x>

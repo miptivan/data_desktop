@@ -39,6 +39,17 @@ def set_table(widget, table):
         i += 1
     return
 
+def unique_set_table(widget, table):
+    headers = table[0]
+    widget.setRowCount(0)
+    widget.setColumnCount(len(headers))
+    widget.setHorizontalHeaderLabels(headers)
+    widget.setRowCount(len(table) - 1)
+    for i in range(1, len(table)):
+        for j in range(widget.columnCount()):
+            widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(table[i][j]))
+    return
+
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -240,9 +251,22 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
                 resid = [float(s) if s != 'None' else None for s in ss[2].split(', ')]
                 level = [float(s) if s != 'None' else None for s in ss[3].split(', ')]
-            # примерно здесь надо бы табличку заполнять...
+            table = [['year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Agu', 'Sep', 'Oct', 'Nov', 'Dec']]
+            for y in ys:
+                table.append([y])
+            for i in range(1, len(table)):
+                df = active_items[active_items['y'] == float(ys[i-1])]
+                print(df)
+                df_1 = df.groupby('month')['Item Total'].sum()
+                for j in range(1, 13):
+                    #print(df)
+                    if len(df[df['real_month'] == j]) == 0:
+                        table[i].append('0, 0 usd')
+                    else:
+                        table[i].append(str(df[df['real_month'] == j].count().values[0]) + ', ' + str(df_1.loc[df[df['real_month'] == j]['month'].values].values[0]) + ' usd')
+            unique_set_table(self.tableWidget_8, table)
             active_items = active_items.groupby('month')['Item Total'].sum()
-            active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
+            active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])
             active_items = active_items.iloc[:-1]
             fig, ax = plt.subplots(figsize=(4, 3), nrows=2, ncols=1)  # создаем график
             ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
