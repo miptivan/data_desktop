@@ -69,6 +69,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.settings_page_but.clicked.connect(self.settings_loader)
         # page_7
         self.pushButton_4.clicked.connect(self.season_page_loader)
+        self.pushButton.clicked.connect(self.season_subpage_loader)
         # page_8
         #self.button_page_8.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.otschot_page))
 
@@ -192,7 +193,10 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
                 resid = [float(s) if s != 'None' else None for s in ss[2].split(', ')]
             active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
-            items = pd.unique(active_items['Item Name'])
+            items = list(pd.unique(active_items['Item Name']))
+            for it in items:
+                if len(active_items[active_items['Item Name'] == it].groupby('month')['Item Total'].sum()) < 24:
+                    items.remove(it)
             self.comboBox_2.clear()
             self.comboBox_2.addItems(items)
             active_items = active_items.groupby('month')['Item Total'].sum()
@@ -217,7 +221,9 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             self.season_flag = 1
         return self.stackedWidget.setCurrentWidget(self.season_page)
     
-    def season_subpage_loader(self, item):
+    def season_subpage_loader(self):
+        item = self.comboBox_2.currentText()
+        self.label_21.setText('Анализ сезонности для товара:\n' + item)
         global ys
         season_analysis.item_seasonal(ys, self.path, item)
         with open(self.path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
@@ -242,10 +248,12 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         ax[0].set_title('All income')
         ax[1].set_xlabel('month')
 
-        self.widget.canvas.axes.clear()
-        self.widget.canvas.figure.clear()
-        self.widget.canvas.figure = fig
-        self.widget.canvas.axes = ax
+        #self.widget_2.canvas.axes.clear()
+        #self.widget_2.canvas.figure.clear()
+        self.widget_2.canvas.figure = fig
+        self.widget_2.canvas.axes = ax
+
+        return self.stackedWidget.setCurrentWidget(self.season_subpage)
         
 
         

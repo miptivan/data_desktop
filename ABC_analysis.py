@@ -16,7 +16,7 @@ def abc(ys, path):
             y = int('20' + df['Sale Date'].iloc[0].split('/')[-1])  # строка с годом таблицы
             df['y'] = [y]*len(df)
         
-        cur_year = date.today().year
+        cur_year = date.today().year - 1
         def change(x):
             if str(x[1]) in x[0]:
                 x[0] = x[0].replace(str(int(x[1])), str(cur_year))

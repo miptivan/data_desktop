@@ -1376,7 +1376,7 @@ height: 32px;
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <item>
-              <widget class="QWidget" name="widget_2" native="true">
+              <widget class="MplWidget" name="widget_2" native="true">
                <property name="minimumSize">
                 <size>
                  <width>350</width>
