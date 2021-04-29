@@ -221,6 +221,15 @@ class Ui_MainWindow(object):
         font.setFamily("Verdana")
         font.setPointSize(40)
         self.stackedWidget.setFont(font)
+        self.stackedWidget.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.stackedWidget.setAcceptDrops(False)
+        self.stackedWidget.setToolTip("")
+        self.stackedWidget.setAccessibleDescription("")
+        self.stackedWidget.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.stackedWidget.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.stackedWidget.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.stackedWidget.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.stackedWidget.setLineWidth(0)
         self.stackedWidget.setObjectName("stackedWidget")
         self.main_page = QtWidgets.QWidget()
         self.main_page.setObjectName("main_page")
@@ -382,9 +391,27 @@ class Ui_MainWindow(object):
         self.lineEdit_4.setClearButtonEnabled(False)
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.horizontalLayout_10.addWidget(self.lineEdit_4)
-        self.pushButton = QtWidgets.QPushButton(self.settings_page)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_10.addWidget(self.pushButton)
+        self.browserButton = QtWidgets.QPushButton(self.settings_page)
+        self.browserButton.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
+        self.browserButton.setObjectName("browserButton")
+        self.horizontalLayout_10.addWidget(self.browserButton)
         self.gridLayout_8.addLayout(self.horizontalLayout_10, 1, 0, 1, 1)
         spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout_8.addItem(spacerItem4, 2, 0, 1, 1)
@@ -416,6 +443,7 @@ class Ui_MainWindow(object):
         font.setFamily("Verdana")
         font.setPointSize(10)
         self.comboBox.setFont(font)
+        self.comboBox.setStyleSheet("")
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -423,6 +451,24 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addWidget(self.comboBox)
         self.items_submit = QtWidgets.QPushButton(self.items_page)
         self.items_submit.setMinimumSize(QtCore.QSize(150, 0))
+        self.items_submit.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.items_submit.setObjectName("items_submit")
         self.horizontalLayout_7.addWidget(self.items_submit)
         spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -476,6 +522,24 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.comboBox_3)
         self.submit_but = QtWidgets.QPushButton(self.info_page)
         self.submit_but.setEnabled(True)
+        self.submit_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.submit_but.setObjectName("submit_but")
         self.horizontalLayout_2.addWidget(self.submit_but)
         spacerItem8 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -630,11 +694,11 @@ class Ui_MainWindow(object):
         self.label_16.setObjectName("label_16")
         self.gridLayout_5.addWidget(self.label_16, 0, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_6)
-        self.page_7 = QtWidgets.QWidget()
-        self.page_7.setObjectName("page_7")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.page_7)
+        self.season_page = QtWidgets.QWidget()
+        self.season_page.setObjectName("season_page")
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.season_page)
         self.gridLayout_6.setObjectName("gridLayout_6")
-        self.label_17 = QtWidgets.QLabel(self.page_7)
+        self.label_17 = QtWidgets.QLabel(self.season_page)
         self.label_17.setMinimumSize(QtCore.QSize(700, 70))
         self.label_17.setMaximumSize(QtCore.QSize(700, 70))
         font = QtGui.QFont()
@@ -646,7 +710,10 @@ class Ui_MainWindow(object):
         self.label_17.setAlignment(QtCore.Qt.AlignCenter)
         self.label_17.setObjectName("label_17")
         self.gridLayout_6.addWidget(self.label_17, 0, 0, 1, 1)
-        self.stackedWidget.addWidget(self.page_7)
+        self.stackedWidget.addWidget(self.season_page)
+        self.season_subpage = QtWidgets.QWidget()
+        self.season_subpage.setObjectName("season_subpage")
+        self.stackedWidget.addWidget(self.season_subpage)
         self.abc_analysis = QtWidgets.QWidget()
         self.abc_analysis.setObjectName("abc_analysis")
         self.label_18 = QtWidgets.QLabel(self.abc_analysis)
@@ -687,12 +754,66 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.a_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.a_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.a_but.setObjectName("a_but")
         self.horizontalLayout_6.addWidget(self.a_but)
         self.b_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.b_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.b_but.setObjectName("b_but")
         self.horizontalLayout_6.addWidget(self.b_but)
         self.c_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.c_but.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.c_but.setObjectName("c_but")
         self.horizontalLayout_6.addWidget(self.c_but)
         self.verticalLayout.addLayout(self.horizontalLayout_6)
@@ -728,7 +849,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(7)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -751,7 +872,7 @@ class Ui_MainWindow(object):
         self.label_19.setText(_translate("MainWindow", "ETSY"))
         self.label_2.setText(_translate("MainWindow", "Настройки"))
         self.label.setText(_translate("MainWindow", "Папка с данными:"))
-        self.pushButton.setText(_translate("MainWindow", "Выбрать"))
+        self.browserButton.setText(_translate("MainWindow", "Выбрать"))
         self.label_3.setText(_translate("MainWindow", "Список товаров"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Все"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Активные"))

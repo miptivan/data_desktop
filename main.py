@@ -154,7 +154,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         abc = abc[abc['group'] == self.letter]
         abc = abc[['Item Name', 'Item Total']]
         summ = abc['Item Total'].values.sum()
-        abc['Group percent'] = abc['Item Total']/summ
+        abc['Group percent'] = round(abc['Item Total']/summ*100, 2)
         abc = abc[['Item Name', 'Item Total', 'Group percent']]
         abc.columns = ['Item', 'Total, usd', 'Group percent']
         set_table(self.tableWidget_7, abc)
