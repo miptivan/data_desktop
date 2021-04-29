@@ -362,7 +362,7 @@ class Ui_MainWindow(object):
         self.gridLayout_8 = QtWidgets.QGridLayout(self.settings_page)
         self.gridLayout_8.setObjectName("gridLayout_8")
         spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_8.addItem(spacerItem4, 3, 0, 1, 1)
+        self.gridLayout_8.addItem(spacerItem4, 4, 0, 1, 1)
         self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         self.label = QtWidgets.QLabel(self.settings_page)
@@ -416,6 +416,8 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.gridLayout_8.addWidget(self.label_2, 0, 0, 1, 1)
         self.label_20 = QtWidgets.QLabel(self.settings_page)
+        self.label_20.setCursor(QtGui.QCursor(QtCore.Qt.SizeFDiagCursor))
+        self.label_20.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_20.setObjectName("label_20")
         self.gridLayout_8.addWidget(self.label_20, 2, 0, 1, 1)
         self.stackedWidget.addWidget(self.settings_page)
@@ -723,36 +725,71 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.comboBox_2 = QtWidgets.QComboBox(self.season_page)
         self.comboBox_2.setMinimumSize(QtCore.QSize(500, 0))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setPointSize(14)
+        self.comboBox_2.setFont(font)
         self.comboBox_2.setObjectName("comboBox_2")
         self.horizontalLayout_11.addWidget(self.comboBox_2)
         self.pushButton = QtWidgets.QPushButton(self.season_page)
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet("QPushButton{\n"
+"background-color: #5ebfff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #2babff;\n"
+"color: #ffffff;\n"
+"height: 50px;\n"
+"border: 1px solid white;\n"
+"border-radius: 2px;\n"
+"padding: 5px;\n"
+"font-weight: bold;\n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_11.addWidget(self.pushButton)
         self.gridLayout_6.addLayout(self.horizontalLayout_11, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.season_page)
         self.season_subpage = QtWidgets.QWidget()
         self.season_subpage.setObjectName("season_subpage")
-        self.verticalLayoutWidget = QtWidgets.QWidget(self.season_subpage)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(-1, 0, 701, 671))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.label_21 = QtWidgets.QLabel(self.verticalLayoutWidget)
-        self.label_21.setMinimumSize(QtCore.QSize(200, 100))
-        self.label_21.setObjectName("label_21")
-        self.verticalLayout_8.addWidget(self.label_21)
-        self.label_23 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_23 = QtWidgets.QLabel(self.season_subpage)
+        self.label_23.setGeometry(QtCore.QRect(0, 108, 16, 16))
         self.label_23.setText("")
         self.label_23.setObjectName("label_23")
-        self.verticalLayout_8.addWidget(self.label_23)
+        self.widget1 = QtWidgets.QWidget(self.season_subpage)
+        self.widget1.setGeometry(QtCore.QRect(1, 2, 702, 661))
+        self.widget1.setObjectName("widget1")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.widget1)
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.label_21 = QtWidgets.QLabel(self.widget1)
+        self.label_21.setMinimumSize(QtCore.QSize(700, 100))
+        self.label_21.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_21.setFont(font)
+        self.label_21.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
+        self.label_21.setWordWrap(True)
+        self.label_21.setObjectName("label_21")
+        self.verticalLayout_8.addWidget(self.label_21)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        self.widget_2 = MplWidget(self.verticalLayoutWidget)
-        self.widget_2.setMinimumSize(QtCore.QSize(350, 0))
+        self.widget_2 = MplWidget(self.widget1)
+        self.widget_2.setMinimumSize(QtCore.QSize(350, 550))
+        self.widget_2.setMaximumSize(QtCore.QSize(16777215, 550))
         self.widget_2.setObjectName("widget_2")
         self.horizontalLayout_12.addWidget(self.widget_2)
-        self.tableWidget_8 = QtWidgets.QTableWidget(self.verticalLayoutWidget)
+        self.tableWidget_8 = QtWidgets.QTableWidget(self.widget1)
+        self.tableWidget_8.setMinimumSize(QtCore.QSize(0, 550))
+        self.tableWidget_8.setMaximumSize(QtCore.QSize(16777215, 550))
         self.tableWidget_8.setObjectName("tableWidget_8")
         self.tableWidget_8.setColumnCount(0)
         self.tableWidget_8.setRowCount(0)
@@ -799,6 +836,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.a_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.a_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.a_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
 "color: #ffffff;\n"
@@ -820,6 +858,7 @@ class Ui_MainWindow(object):
         self.a_but.setObjectName("a_but")
         self.horizontalLayout_6.addWidget(self.a_but)
         self.b_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.b_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.b_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
 "color: #ffffff;\n"
@@ -841,6 +880,7 @@ class Ui_MainWindow(object):
         self.b_but.setObjectName("b_but")
         self.horizontalLayout_6.addWidget(self.b_but)
         self.c_but = QtWidgets.QPushButton(self.layoutWidget1)
+        self.c_but.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.c_but.setStyleSheet("QPushButton{\n"
 "background-color: #5ebfff;\n"
 "color: #ffffff;\n"
@@ -918,7 +958,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Папка с данными:"))
         self.browserButton.setText(_translate("MainWindow", "Выбрать"))
         self.label_2.setText(_translate("MainWindow", "Настройки"))
-        self.label_20.setText(_translate("MainWindow", "    Выберите папку, в которой лежат .csv файлы с данными о магазине."))
+        self.label_20.setText(_translate("MainWindow", "Выберите папку, в которой лежат .csv файлы с данными о магазине."))
         self.label_3.setText(_translate("MainWindow", "Список товаров"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Все"))
         self.comboBox.setItemText(1, _translate("MainWindow", "Активные"))
