@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>6</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1804,14 +1804,14 @@ font-weight: bold;
                 <widget class="MplWidget" name="plot" native="true">
                  <property name="minimumSize">
                   <size>
-                   <width>300</width>
-                   <height>0</height>
+                   <width>500</width>
+                   <height>500</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>300</width>
-                   <height>250</height>
+                   <width>500</width>
+                   <height>500</height>
                   </size>
                  </property>
                 </widget>
@@ -1830,6 +1830,9 @@ font-weight: bold;
     border: none;
     height: 32px;
 }</string>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
                  </property>
                 </widget>
                </item>
