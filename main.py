@@ -118,6 +118,26 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             self.main_flag = 1
         return self.stackedWidget.setCurrentWidget(self.main_page)
     
+    '''def items_set_table(self, widget, table):
+        headers = table.columns.values.tolist() + ['Сезонность']
+        widget.setRowCount(0)
+        widget.setColumnCount(len(headers))
+        widget.setHorizontalHeaderLabels(headers)
+        widget.setRowCount(len(table))
+        i = 0
+        for _, row in table.iterrows():
+            row = row.values.tolist()
+            #widget.setRowCount(i)
+            for j in range(widget.columnCount()):
+                if j < widget.columnCount() - 1:
+                    widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                else:
+                    btn = 
+                    widget.
+                
+            i += 1
+        return'''
+    
     def set_item_page(self):
         global ys
         ABC_analysis.abc(ys, self.path)
