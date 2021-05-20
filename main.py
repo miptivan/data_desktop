@@ -23,7 +23,6 @@ for i in range(len(list_dir)):
 ys = list(ys)
 ys = sorted(ys)
 
-
 def set_table(widget, table):
     headers = table.columns.values.tolist()
     widget.setRowCount(0)
@@ -50,12 +49,17 @@ def unique_set_table(widget, table):
             widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(str(table[i][j])))
     return
 
+class my_button(QtWidgets.QPushButton):
+    def __init__(self, item):
+        self.item = item
+
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         global ys
         self.setupUi(self)
         self.path = 'analysis/'
+        self.flag_items = 0
         self.abc_flag = 0
         self.main_flag = 0
         self.season_flag = 0
@@ -118,7 +122,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             self.main_flag = 1
         return self.stackedWidget.setCurrentWidget(self.main_page)
     
-    '''def items_set_table(self, widget, table):
+    def items_set_table(self, widget, table):
         headers = table.columns.values.tolist() + ['Сезонность']
         widget.setRowCount(0)
         widget.setColumnCount(len(headers))
@@ -132,12 +136,20 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 if j < widget.columnCount() - 1:
                     widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
                 else:
-                    btn = 
-                    widget.
+                    exec(f'self.btn_{row[0].replace(' ', '_')} = QtWidgets.QPushButton(widget)')
+                    exec(f'self.btn_{row[0].replace(' ', '_')}.setText("Сезонность")')
+                    exec(f'widget.setCellWidget(i, j, self.btn_{row[0].replace(' ', '_')})')
+                    exec(f'self.btn_{row[0].replace(' ', '_')}.clicked.connect()')
                 
             i += 1
-        return'''
+        return
     
+    def items_seasonal(self):
+        self.flag_items = 1
+        self.items_item = 
+        self.flag_items = 0
+        return
+
     def set_item_page(self):
         global ys
         ABC_analysis.abc(ys, self.path)
@@ -262,6 +274,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     
     def season_subpage_loader(self):
         item = self.comboBox_2.currentText()
+        if self.flag_items == 1:
+            item = self.items_item
         self.label_21.setText('Анализ сезонности для товара:\n' + item)
         global ys
         active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
