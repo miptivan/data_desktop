@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>7</number>
+         <number>9</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -2023,6 +2023,9 @@ font-weight: bold;
             <height>16777215</height>
            </size>
           </property>
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
           <property name="styleSheet">
            <string notr="true">QHeaderView::section {
 background-color: rgb(94, 191, 255);
@@ -2030,6 +2033,9 @@ border: none;
 height: 32px;
 }</string>
           </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
          </widget>
         </widget>
        </widget>
