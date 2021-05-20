@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>7</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1019,7 +1019,7 @@ font-weight: bold;
             <item>
              <widget class="QTableWidget" name="tableWidget">
               <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+               <enum>Qt::LeftToRight</enum>
               </property>
               <property name="styleSheet">
                <string notr="true">QHeaderView::section {
@@ -1479,6 +1479,9 @@ border: none;
 height: 32px;
 }</string>
             </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
            </widget>
           </item>
          </layout>
@@ -1771,9 +1774,19 @@ font-weight: bold;
             <height>550</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QHeaderView::section {
+background-color: rgb(94, 191, 255);
+border: none;
+height: 32px;
+}</string>
+          </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
           </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
          </widget>
         </widget>
         <widget class="QWidget" name="abc_analysis">
