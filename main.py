@@ -49,9 +49,6 @@ def unique_set_table(widget, table):
             widget.setItem(i-1, j, QtWidgets.QTableWidgetItem(str(table[i][j])))
     return
 
-class my_button(QtWidgets.QPushButton):
-    def __init__(self, item):
-        self.item = item
 
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
@@ -136,17 +133,19 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 if j < widget.columnCount() - 1:
                     widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
                 else:
-                    exec(f'self.btn_{row[0].replace(' ', '_')} = QtWidgets.QPushButton(widget)')
-                    exec(f'self.btn_{row[0].replace(' ', '_')}.setText("Сезонность")')
-                    exec(f'widget.setCellWidget(i, j, self.btn_{row[0].replace(' ', '_')})')
-                    exec(f'self.btn_{row[0].replace(' ', '_')}.clicked.connect()')
+                    exec(f'self.btn_{i} = QtWidgets.QPushButton(widget)')
+                    exec(f'self.btn_{i}.setText("Сезонность")')
+                    exec(f'widget.setCellWidget(i, j, self.btn_{i})')
+                    exec(f'self.btn_{i}.clicked.connect(lambda: self.item_seasonal(row[0]))')
                 
             i += 1
         return
     
-    def items_seasonal(self):
+    def items_seasonal(self, item):
         self.flag_items = 1
-        self.items_item = 
+        self.items_item = item
+        print(1)
+        self.season_subpage_loader()
         self.flag_items = 0
         return
 
@@ -156,11 +155,11 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         state = self.comboBox.currentText()
         all_items, active_items, disactive_items = items_page.items_info(ys, self.path)
         if state == 'Все':
-            set_table(self.tableWidget, all_items)
+            self.items_set_table(self.tableWidget, all_items)
         elif state == 'Активные':
-            set_table(self.tableWidget, active_items)
+            self.items_set_table(self.tableWidget, active_items)
         else:
-            set_table(self.tableWidget, disactive_items)
+            self.items_set_table(self.tableWidget, disactive_items)
         return self.stackedWidget.setCurrentWidget(self.items_page)
     
     def abc_page_loader(self):

@@ -936,8 +936,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.plot = MplWidget(self.layoutWidget1)
-        self.plot.setMinimumSize(QtCore.QSize(300, 0))
-        self.plot.setMaximumSize(QtCore.QSize(300, 250))
+        self.plot.setMinimumSize(QtCore.QSize(500, 500))
+        self.plot.setMaximumSize(QtCore.QSize(500, 500))
         self.plot.setObjectName("plot")
         self.horizontalLayout_5.addWidget(self.plot)
         self.tableWidget_4 = QtWidgets.QTableWidget(self.layoutWidget1)
@@ -947,6 +947,7 @@ class Ui_MainWindow(object):
 "    border: none;\n"
 "    height: 32px;\n"
 "}")
+        self.tableWidget_4.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tableWidget_4.setObjectName("tableWidget_4")
         self.tableWidget_4.setColumnCount(0)
         self.tableWidget_4.setRowCount(0)
@@ -1053,7 +1054,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
