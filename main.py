@@ -55,7 +55,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         super().__init__()
         global ys
         self.setupUi(self)
-        self.path = 'analysis/'
+        self.path = 'analysis'
         self.flag_items = 0
         self.abc_flag = 0
         self.main_flag = 0
@@ -121,22 +121,25 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     
     def items_set_table(self, widget, table):
         headers = table.columns.values.tolist() + ['Сезонность']
+        headers.reverse()
         widget.setRowCount(0)
         widget.setColumnCount(len(headers))
         widget.setHorizontalHeaderLabels(headers)
         widget.setRowCount(len(table))
         i = 0
+        self.btns = []
         for _, row in table.iterrows():
             row = row.values.tolist()
+            row.reverse()
             #widget.setRowCount(i)
             for j in range(widget.columnCount()):
-                if j < widget.columnCount() - 1:
-                    widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                if j != 0:
+                    widget.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j - 1])))
                 else:
-                    exec(f'self.btn_{i} = QtWidgets.QPushButton(widget)')
-                    exec(f'self.btn_{i}.setText("Сезонность")')
-                    exec(f'widget.setCellWidget(i, j, self.btn_{i})')
-                    exec(f'self.btn_{i}.clicked.connect(lambda: self.item_seasonal(row[0]))')
+                    self.btns.append(QtWidgets.QPushButton(widget))
+                    self.btns[i].setText("Перейти")
+                    widget.setCellWidget(i, j, self.btns[i])
+                    self.btns[i].clicked.connect(lambda: self.items_seasonal(row[0]))
                 
             i += 1
         return
@@ -144,7 +147,6 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def items_seasonal(self, item):
         self.flag_items = 1
         self.items_item = item
-        print(1)
         self.season_subpage_loader()
         self.flag_items = 0
         return
@@ -272,20 +274,23 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         return self.stackedWidget.setCurrentWidget(self.season_page)
     
     def season_subpage_loader(self):
+        global ys
+        season_analysis.seasonal_all(ys, self.path)
         item = self.comboBox_2.currentText()
         if self.flag_items == 1:
             item = self.items_item
         self.label_21.setText('Анализ сезонности для товара:\n' + item)
-        global ys
         active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
         active_items = active_items[active_items['Item Name'] == item]
-        if len(active_items.groupby('month')['Item Total'].sum()) < 24:
+        del active_items['Unnamed: 0']
+        print(active_items)
+        if len(active_items['month'].unique()) < 24:
             self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар')
         else:
             dates = pd.DatetimeIndex(active_items['Sale Date'])
 
             season_analysis.item_seasonal(ys, self.path, item)
-            with open(self.path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
+            with open(self.path + '/' + item.replace('"', '') + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'r') as f:
                 ss = f.read().split('\n')
                 trend = [float(s) if s != 'None' else None  for s in ss[0].split(', ')]
                 seasonal = [float(s) if s != 'None' else None for s in ss[1].split(', ')]
@@ -306,16 +311,22 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             active_items = active_items.groupby('month')['Item Total'].sum()
             active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])
             active_items = active_items.iloc[:-1]
+            for m in range(int(active_items['month'].min()), int(active_items['month'].max())):
+                if m not in (active_items['month'].unique()):
+                    active_items.loc[len(active_items)] = [m, 0.001]
+            active_items = active_items.sort_values('month')
             fig, ax = plt.subplots(figsize=(4, 3), nrows=2, ncols=1)  # создаем график
             ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
             ax[0].plot(range(len(trend)), np.array(trend)*np.array(level)*np.array(seasonal), label='trend*level*seasonal')
             ax[0].legend()
+            print(len(trend))
             ax[0].set_xticks(range(0, len(trend), 12))
             yss = set()
             for ind in dates:
                 if ind.year not in yss:
                     yss.add(ind.year)
             yss = sorted(list(yss))
+            print(yss)
             ax[0].set_xticklabels(yss)
             ax[1].plot(range(1, 13), seasonal[:12])
             ax[1].set_title('Seasonal')
@@ -324,6 +335,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
 
             #self.widget_2.canvas.axes.clear()
             #self.widget_2.canvas.figure.clear()
+            del self.widget_2.canvas.axes
+            del self.widget_2.canvas.figure
             self.widget_2.canvas.figure = fig
             self.widget_2.canvas.axes = ax
 
@@ -350,10 +363,8 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             labels = ys + [str(int(ys[-1]) + i) for i in range(1, len(forecast) // 12 + 1)]
             ax.set_xticklabels(labels)
             months = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'}
-            print((month_0 + active_items['month'].iloc[-1]))
             table = [[ months[(month_0 + active_items['month'].iloc[-1] + i) % 12 + 1] for i in range(12)]]
             table.append(forecast)
-            print(table)
             unique_set_table(self.tableWidget_9, table)
             self.widget_3.canvas.figure = fig
             self.widget_3.canvas.axes = ax

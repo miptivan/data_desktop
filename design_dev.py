@@ -353,11 +353,14 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tableWidget_6.sizePolicy().hasHeightForWidth())
         self.tableWidget_6.setSizePolicy(sizePolicy)
+        self.tableWidget_6.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.tableWidget_6.setAutoFillBackground(False)
         self.tableWidget_6.setStyleSheet("QHeaderView::section {\n"
 "background-color: rgb(94, 191, 255);\n"
 "border: none;\n"
 "height: 32px;\n"
 "}")
+        self.tableWidget_6.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tableWidget_6.setShowGrid(True)
         self.tableWidget_6.setObjectName("tableWidget_6")
         self.tableWidget_6.setColumnCount(0)
@@ -365,7 +368,7 @@ class Ui_MainWindow(object):
         self.tableWidget_6.horizontalHeader().setVisible(False)
         self.tableWidget_6.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget_6.horizontalHeader().setDefaultSectionSize(338)
-        self.tableWidget_6.horizontalHeader().setStretchLastSection(False)
+        self.tableWidget_6.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_6.verticalHeader().setVisible(False)
         self.tableWidget_6.verticalHeader().setStretchLastSection(False)
         self.gridLayout.addWidget(self.tableWidget_6, 2, 0, 1, 1)
@@ -515,6 +518,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.addItem(spacerItem6)
         self.verticalLayout_9.addLayout(self.horizontalLayout_7)
         self.tableWidget = QtWidgets.QTableWidget(self.items_page)
+        self.tableWidget.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.tableWidget.setStyleSheet("QHeaderView::section {\n"
 "    background-color: rgb(94, 191, 255);\n"
 "    border: none;\n"
@@ -523,6 +527,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
+        self.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.verticalLayout_9.addWidget(self.tableWidget)
         self.gridLayout_2.addLayout(self.verticalLayout_9, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.items_page)
@@ -701,6 +706,7 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(0)
         self.tableWidget_2.setRowCount(0)
+        self.tableWidget_2.horizontalHeader().setStretchLastSection(True)
         self.verticalLayout_4.addWidget(self.tableWidget_2)
         self.horizontalLayout_4.addLayout(self.verticalLayout_4)
         spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -732,6 +738,7 @@ class Ui_MainWindow(object):
         self.tableWidget_3.setObjectName("tableWidget_3")
         self.tableWidget_3.setColumnCount(0)
         self.tableWidget_3.setRowCount(0)
+        self.tableWidget_3.horizontalHeader().setStretchLastSection(True)
         self.verticalLayout_5.addWidget(self.tableWidget_3)
         self.horizontalLayout_4.addLayout(self.verticalLayout_5)
         spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -761,6 +768,7 @@ class Ui_MainWindow(object):
 "border: none;\n"
 "height: 32px;\n"
 "}")
+        self.tableWidget_5.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tableWidget_5.setObjectName("tableWidget_5")
         self.tableWidget_5.setColumnCount(0)
         self.tableWidget_5.setRowCount(0)
@@ -906,10 +914,16 @@ class Ui_MainWindow(object):
         self.tableWidget_8.setGeometry(QtCore.QRect(360, 111, 731, 550))
         self.tableWidget_8.setMinimumSize(QtCore.QSize(0, 550))
         self.tableWidget_8.setMaximumSize(QtCore.QSize(16777215, 550))
+        self.tableWidget_8.setStyleSheet("QHeaderView::section {\n"
+"background-color: rgb(94, 191, 255);\n"
+"border: none;\n"
+"height: 32px;\n"
+"}")
         self.tableWidget_8.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tableWidget_8.setObjectName("tableWidget_8")
         self.tableWidget_8.setColumnCount(0)
         self.tableWidget_8.setRowCount(0)
+        self.tableWidget_8.verticalHeader().setVisible(False)
         self.stackedWidget.addWidget(self.season_subpage)
         self.abc_analysis = QtWidgets.QWidget()
         self.abc_analysis.setObjectName("abc_analysis")
@@ -1041,6 +1055,7 @@ class Ui_MainWindow(object):
         self.tableWidget_7 = QtWidgets.QTableWidget(self.abc_subpage)
         self.tableWidget_7.setGeometry(QtCore.QRect(230, 90, 661, 561))
         self.tableWidget_7.setMaximumSize(QtCore.QSize(1100, 16777215))
+        self.tableWidget_7.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.tableWidget_7.setStyleSheet("QHeaderView::section {\n"
 "background-color: rgb(94, 191, 255);\n"
 "border: none;\n"
@@ -1049,6 +1064,7 @@ class Ui_MainWindow(object):
         self.tableWidget_7.setObjectName("tableWidget_7")
         self.tableWidget_7.setColumnCount(0)
         self.tableWidget_7.setRowCount(0)
+        self.tableWidget_7.horizontalHeader().setStretchLastSection(True)
         self.stackedWidget.addWidget(self.abc_subpage)
         self.horizontalLayout_9.addWidget(self.stackedWidget)
         MainWindow.setCentralWidget(self.centralwidget)

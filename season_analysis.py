@@ -85,9 +85,12 @@ def item_seasonal(ys, path, item):
         active_items = active_items.groupby('month')['Item Total'].sum()
         active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])
         active_items = active_items.iloc[:-1]
+        for m in range(int(active_items['month'].min()), int(active_items['month'].max())):
+            if m not in (active_items['month'].unique()):
+                active_items.loc[len(active_items)] = [m, 0.001]
+        active_items = active_items.sort_values('month')
         result = sm.tsa.ExponentialSmoothing(active_items['Item Total'].values, seasonal_periods=12, trend='mul', seasonal='mul').fit()
-        
-        with open(path + '/' + item + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
+        with open(path + '/' + item.replace('"', '') + '_' + '_'.join([str(y) for y in ys]) + '.txt', 'w') as f:
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.trend]) + '\n')
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.season]) + '\n')
             f.write(', '.join([str(s) if str(s) != 'nan' else 'None' for s in result.resid]) + '\n')
