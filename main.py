@@ -139,13 +139,14 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                     self.btns.append(QtWidgets.QPushButton(widget))
                     self.btns[i].setText("Перейти")
                     widget.setCellWidget(i, j, self.btns[i])
-                    self.btns[i].clicked.connect(lambda: self.items_seasonal(row[0]))
+                    self.btns[i].clicked.connect(lambda: self.items_seasonal(row[-1]))
                 
             i += 1
         return
     
     def items_seasonal(self, item):
         self.flag_items = 1
+        print(item)
         self.items_item = item
         self.season_subpage_loader()
         self.flag_items = 0
@@ -279,6 +280,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         item = self.comboBox_2.currentText()
         if self.flag_items == 1:
             item = self.items_item
+        print(item)
         self.label_21.setText('Анализ сезонности для товара:\n' + item)
         active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
         active_items = active_items[active_items['Item Name'] == item]
