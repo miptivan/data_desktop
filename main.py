@@ -287,6 +287,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         if len(active_items['month'].unique()) < 24:
             self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар')
         else:
+            self.label_23.setText('')
             dates = pd.DatetimeIndex(active_items['Sale Date'])
 
             season_analysis.item_seasonal(ys, self.path, item)
