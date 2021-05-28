@@ -7,7 +7,12 @@ class MplWidget(QtWidgets.QWidget):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         self.canvas = FigureCanvas(Figure())
-        vertical_layout = QtWidgets.QVBoxLayout()
-        vertical_layout.addWidget(self.canvas)
+        self.vertical_layout = QtWidgets.QVBoxLayout()
+        self.vertical_layout.addWidget(self.canvas)
         self.canvas.axes = self.canvas.figure.add_subplot(111)
-        self.setLayout(vertical_layout)
+        self.setLayout(self.vertical_layout)
+    
+    def Clear(self):
+        self.canvas = FigureCanvas(Figure())
+        self.canvas.axes = self.canvas.figure.add_subplot(111)
+        #return

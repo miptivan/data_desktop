@@ -288,7 +288,10 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         print(active_items)
         if len(active_items['month'].unique()) < 24:
             self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар')
+            self.widget_2.hide()
         else:
+            self.widget_2.show()
+            self.widget_2.Clear()
             self.label_23.setText('')
             dates = pd.DatetimeIndex(active_items['Sale Date'])
 
