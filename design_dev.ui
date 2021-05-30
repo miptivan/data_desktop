@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>7</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1731,28 +1731,6 @@ font-weight: bold;
            <bool>true</bool>
           </property>
          </widget>
-         <widget class="MplWidget" name="widget_2" native="true">
-          <property name="geometry">
-           <rect>
-            <x>3</x>
-            <y>111</y>
-            <width>350</width>
-            <height>550</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>350</width>
-            <height>550</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>550</height>
-           </size>
-          </property>
-         </widget>
          <widget class="QTableWidget" name="tableWidget_8">
           <property name="geometry">
            <rect>
@@ -1787,6 +1765,22 @@ height: 32px;
           <attribute name="verticalHeaderVisible">
            <bool>false</bool>
           </attribute>
+         </widget>
+         <widget class="QFrame" name="frame_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>110</y>
+            <width>341</width>
+            <height>551</height>
+           </rect>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
          </widget>
         </widget>
         <widget class="QWidget" name="abc_analysis">
