@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>7</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -1679,115 +1679,127 @@ font-weight: bold;
          </layout>
         </widget>
         <widget class="QWidget" name="season_subpage">
-         <widget class="QLabel" name="label_23">
+         <widget class="QWidget" name="">
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>108</y>
-            <width>16</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_21">
-          <property name="geometry">
-           <rect>
-            <x>2</x>
             <y>3</y>
-            <width>1100</width>
-            <height>100</height>
+            <width>1104</width>
+            <height>750</height>
            </rect>
           </property>
-          <property name="minimumSize">
-           <size>
-            <width>1100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>1100</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Verdana</family>
-            <pointsize>14</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignHCenter|Qt::AlignTop</set>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
-         <widget class="MplWidget" name="widget_2" native="true">
-          <property name="geometry">
-           <rect>
-            <x>3</x>
-            <y>111</y>
-            <width>350</width>
-            <height>550</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>350</width>
-            <height>550</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>550</height>
-           </size>
-          </property>
-         </widget>
-         <widget class="QTableWidget" name="tableWidget_8">
-          <property name="geometry">
-           <rect>
-            <x>360</x>
-            <y>111</y>
-            <width>731</width>
-            <height>550</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>550</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>550</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QHeaderView::section {
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_21">
+               <property name="minimumSize">
+                <size>
+                 <width>1100</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>1100</width>
+                 <height>100</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Verdana</family>
+                 <pointsize>14</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="text">
+                <string>TextLabel</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter|Qt::AlignTop</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_23">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Verdana</family>
+                 <pointsize>14</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="MplWidget" name="widget_2" native="true">
+               <property name="minimumSize">
+                <size>
+                 <width>350</width>
+                 <height>550</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>550</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="tableWidget_8">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>550</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>550</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QHeaderView::section {
 background-color: rgb(94, 191, 255);
 border: none;
 height: 32px;
 }</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
-          </property>
-          <attribute name="verticalHeaderVisible">
-           <bool>false</bool>
-          </attribute>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
+         <zorder>label_23</zorder>
+         <zorder>widget_2</zorder>
+         <zorder>tableWidget_8</zorder>
+         <zorder>label_21</zorder>
         </widget>
         <widget class="QWidget" name="abc_analysis">
          <widget class="QWidget" name="layoutWidget">
