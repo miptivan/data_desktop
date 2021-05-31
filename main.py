@@ -13,6 +13,7 @@ import os
 os.system('pyuic5 design_dev.ui -o design_dev.py')
 import design_dev
 import season_analysis
+import copy
 
 
 list_dir = os.listdir('analysis')
@@ -50,6 +51,12 @@ def unique_set_table(widget, table):
     return
 
 
+class my_button(QtWidgets.QPushButton):
+    def __init__(self, widget, item):
+        super(my_button, self).__init__(widget)
+        self.item = item
+
+
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -61,6 +68,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.main_flag = 0
         self.season_flag = 0
         self.forecast_flag = 0
+        self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар')
         if len(ys) == 0:
             self.settings_loader()
         else:
@@ -139,8 +147,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                     self.btns.append(QtWidgets.QPushButton(widget))
                     self.btns[i].setText("Перейти")
                     widget.setCellWidget(i, j, self.btns[i])
-                    self.btns[i].clicked.connect(lambda: self.items_seasonal(row[-1]))
-                
+                    self.btns[i].clicked.connect(lambda checked, item=copy.deepcopy(row[-1]): self.items_seasonal(item))
             i += 1
         return
     
@@ -287,12 +294,14 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         del active_items['Unnamed: 0']
         print(active_items)
         if len(active_items['month'].unique()) < 24:
-            self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар')
+            self.label_23.show()
             self.widget_2.hide()
+            self.tableWidget_8.hide()
         else:
+            self.label_23.hide()
+            self.tableWidget_8.show()
             self.widget_2.show()
             self.widget_2.Clear()
-            self.label_23.setText('')
             dates = pd.DatetimeIndex(active_items['Sale Date'])
 
             season_analysis.item_seasonal(ys, self.path, item)
@@ -321,7 +330,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 if m not in (active_items['month'].unique()):
                     active_items.loc[len(active_items)] = [m, 0.001]
             active_items = active_items.sort_values('month')
-            fig, ax = plt.subplots(figsize=(4, 3), nrows=2, ncols=1)  # создаем график
+            fig, ax = plt.subplots(figsize=(2, 2), nrows=2, ncols=1)  # создаем график
             ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
             ax[0].plot(range(len(trend)), np.array(trend)*np.array(level)*np.array(seasonal), label='trend*level*seasonal')
             ax[0].legend()
