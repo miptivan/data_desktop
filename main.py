@@ -10,7 +10,7 @@ import items_page
 import ABC_analysis
 import matplotlib.pyplot as plt
 import os
-os.system('pyuic5 design_dev.ui -o design_dev.py')
+#os.system('pyuic5 design_dev.ui -o design_dev.py')
 import design_dev
 import season_analysis
 import copy
@@ -51,12 +51,6 @@ def unique_set_table(widget, table):
     return
 
 
-class my_button(QtWidgets.QPushButton):
-    def __init__(self, widget, item):
-        super(my_button, self).__init__(widget)
-        self.item = item
-
-
 class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -68,7 +62,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         self.main_flag = 0
         self.season_flag = 0
         self.forecast_flag = 0
-        self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар')
+        self.label_23.setText('Произведено недосаточно продаж для анализа, относительно новый товар') ### Сам текст, выводимый при недостаточном колличестве продаж
         if len(ys) == 0:
             self.settings_loader()
         else:
@@ -153,7 +147,6 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
     
     def items_seasonal(self, item):
         self.flag_items = 1
-        print(item)
         self.items_item = item
         self.season_subpage_loader()
         self.flag_items = 0
@@ -229,6 +222,7 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         global ys
         basket.bascket_info(ys, self.path)
         bascket_df = pd.read_csv(self.path + '/basket_table_' + '_'.join([str(y) for y in ys]) + '.csv')
+        del bascket_df['Unnamed: 0']
         set_table(self.tableWidget_5, bascket_df)
         return self.stackedWidget.setCurrentWidget(self.basket_page)
     
@@ -287,16 +281,14 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         item = self.comboBox_2.currentText()
         if self.flag_items == 1:
             item = self.items_item
-        print(item)
         self.label_21.setText('Анализ сезонности для товара:\n' + item)
         active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
         active_items = active_items[active_items['Item Name'] == item]
         del active_items['Unnamed: 0']
-        print(active_items)
-        if len(active_items['month'].unique()) < 24:
+        if len(active_items['month'].unique()) < 24: ### Вот условие для вывода текста, что данных не хватает
             self.label_23.show()
             self.widget_2.hide()
-            self.tableWidget_8.hide()
+            self.tableWidget_8.hide() ### до сюда, можно сделать, чтобы просто возвращало на страницу с товарами обратно
         else:
             self.label_23.hide()
             self.tableWidget_8.show()
@@ -334,14 +326,12 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
             ax[0].plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
             ax[0].plot(range(len(trend)), np.array(trend)*np.array(level)*np.array(seasonal), label='trend*level*seasonal')
             ax[0].legend()
-            print(len(trend))
             ax[0].set_xticks(range(0, len(trend), 12))
             yss = set()
             for ind in dates:
                 if ind.year not in yss:
                     yss.add(ind.year)
             yss = sorted(list(yss))
-            print(yss)
             ax[0].set_xticklabels(yss)
             ax[1].plot(range(1, 13), seasonal[:12])
             ax[1].set_title('Seasonal')
@@ -365,21 +355,45 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
                 ss = f.read().split('\n')
                 forecast = [float(s) if s != 'None' else None for s in ss[4].split(', ')]
             active_items = pd.read_csv(self.path + '/active_items_' + '_'.join([str(y) for y in ys]) + '.csv')
+            active_items['Sale Date'] = pd.to_datetime(active_items['Sale Date'])
+            start_month = active_items[active_items['month'] == active_items['month'].min()].iloc[0]['Sale Date'].month
+            print(start_month)
             month_0 = active_items['real_month'].iloc[0]
             active_items = active_items.groupby('month')['Item Total'].sum()
             active_items = pd.DataFrame(data=np.array([active_items.index, active_items.values]).T, columns=['month', 'Item Total'])  # ?????????
             active_items = active_items.iloc[:-1]
             fig, ax = plt.subplots(figsize=(5, 3))
-            ax.plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='real')
+            ax.plot(range(len(active_items['Item Total'])), active_items['Item Total'].values, label='historical')
             #ax.plot(range(len(active_items['Item Total'])), model.season*(model.trend*model.level) + model.resid)
             ax.plot(range(len(active_items['Item Total']) - 1, len(active_items['Item Total']) + len(forecast)), np.hstack((active_items['Item Total'].values[-1], forecast)), label='forecast')
+            ax.legend()
             ax.set_title('Forecast for next 12 months')
-            ax.set_xticks(range(0, len(active_items['Item Total']) + len(forecast), 12))
-            labels = ys + [str(int(ys[-1]) + i) for i in range(1, len(forecast) // 12 + 1)]
-            ax.set_xticklabels(labels)
+            print(active_items['Item Total'], forecast)
+            ax.set_xticks(range(len(active_items['Item Total']) + len(forecast)))
+            #labels = ys + [str(int(ys[-1]) + i) for i in range(1, len(forecast) // 12 + 1)]
+            if start_month != 1:
+                ii = 1
+            else:
+                ii = 0
+            labels = []
+            for i in range(len(active_items['Item Total']) + len(forecast)):
+                if (i + start_month) % 12 != 1:
+                    """if ((i + start_month) % 12) % 2 == 1:
+                        labels.append((i + start_month) % 12)
+                    else:"""
+                    labels.append('')
+                else:
+                    labels.append((i + start_month)//12 + ii + int(ys[0]))
             months = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec'}
+            ax.set_xticklabels(labels)
             table = [[ months[(month_0 + active_items['month'].iloc[-1] + i) % 12 + 1] for i in range(12)]]
+            for i in range(len(forecast)):
+                forecast[i] = int(round(forecast[i]))
             table.append(forecast)
+            table = np.array(table)
+            table = table.T
+            table = list(table)
+            table.insert(0, ['month', 'total'])
             unique_set_table(self.tableWidget_9, table)
             self.widget_3.canvas.figure = fig
             self.widget_3.canvas.axes = ax
