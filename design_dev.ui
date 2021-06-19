@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>4</number>
+         <number>9</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -2086,7 +2086,7 @@ height: 32px;
            <bool>true</bool>
           </attribute>
           <attribute name="verticalHeaderMinimumSectionSize">
-           <number>185</number>
+           <number>20</number>
           </attribute>
           <column>
            <property name="text">
