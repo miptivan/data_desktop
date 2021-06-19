@@ -2080,8 +2080,16 @@ height: 32px;
            <bool>true</bool>
           </attribute>
           <attribute name="verticalHeaderMinimumSectionSize">
-           <number>280</number>
+           <number>185</number>
           </attribute>
+          <column>
+           <property name="text">
+            <string>New Column</string>
+           </property>
+           <property name="textAlignment">
+            <set>AlignHCenter|AlignTop</set>
+           </property>
+          </column>
           <column>
            <property name="text">
             <string>New Column</string>
