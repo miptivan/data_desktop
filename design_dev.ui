@@ -473,7 +473,7 @@ font-weight: bold;
          <number>0</number>
         </property>
         <property name="currentIndex">
-         <number>4</number>
+         <number>9</number>
         </property>
         <widget class="QWidget" name="main_page">
          <layout class="QGridLayout" name="gridLayout">
@@ -2067,7 +2067,7 @@ font-weight: bold;
            </size>
           </property>
           <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
+           <enum>Qt::RightToLeft</enum>
           </property>
           <property name="styleSheet">
            <string notr="true">QHeaderView::section {
@@ -2087,7 +2087,7 @@ height: 32px;
             <string>New Column</string>
            </property>
            <property name="textAlignment">
-            <set>AlignCenter</set>
+            <set>AlignHCenter|AlignTop</set>
            </property>
           </column>
           <column>
@@ -2095,7 +2095,7 @@ height: 32px;
             <string>New Column</string>
            </property>
            <property name="textAlignment">
-            <set>AlignCenter</set>
+            <set>AlignHCenter|AlignTop</set>
            </property>
           </column>
          </widget>
