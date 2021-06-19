@@ -10,7 +10,7 @@ import items_page
 import ABC_analysis
 import matplotlib.pyplot as plt
 import os
-#os.system('pyuic5 design_dev.ui -o design_dev.py')
+os.system('pyuic5 design_dev.ui -o design_dev.py')
 import design_dev
 import season_analysis
 import copy
@@ -114,6 +114,9 @@ class Ui(QtWidgets.QMainWindow, design_dev.Ui_MainWindow):
         if self.main_flag == 0:
             global ys
             first_sale, all_count, all_sold, active_items = main_page.main_info(ys, self.path)
+            print(active_items.columns)
+            active_items['Item Total'] = 
+            active_items = active_items[['Item Total', 'Item Name']]
             set_table(self.tableWidget_6, active_items)
             self.label_5.setText(first_sale)
             self.sold.setText(all_count)

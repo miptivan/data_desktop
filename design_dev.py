@@ -942,7 +942,7 @@ class Ui_MainWindow(object):
         self.widget_2.setMaximumSize(QtCore.QSize(16777215, 700))
         self.widget_2.setAutoFillBackground(False)
         self.widget_2.setObjectName("widget_2")
-        self.layoutWidget.raise_()
+        self.tableWidget_8.raise_()
         self.layoutWidget.raise_()
         self.widget_2.raise_()
         self.stackedWidget.addWidget(self.season_subpage)
@@ -1076,7 +1076,7 @@ class Ui_MainWindow(object):
         self.tableWidget_7 = QtWidgets.QTableWidget(self.abc_subpage)
         self.tableWidget_7.setGeometry(QtCore.QRect(230, 90, 661, 561))
         self.tableWidget_7.setMaximumSize(QtCore.QSize(1100, 16777215))
-        self.tableWidget_7.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.tableWidget_7.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.tableWidget_7.setStyleSheet("QHeaderView::section {\n"
 "background-color: rgb(94, 191, 255);\n"
 "border: none;\n"
@@ -1091,7 +1091,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(9)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
