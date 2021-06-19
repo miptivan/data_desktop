@@ -1486,7 +1486,7 @@ height: 32px;
              <bool>true</bool>
             </attribute>
             <attribute name="verticalHeaderMinimumSectionSize">
-             <number>538</number>
+             <number>20</number>
             </attribute>
             <column>
              <property name="text">
